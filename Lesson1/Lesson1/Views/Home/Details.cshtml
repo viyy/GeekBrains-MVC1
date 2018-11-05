@@ -1,0 +1,55 @@
+﻿@model Lesson1.Models.Students
+@{
+	ViewData["Title"] = "Details about "+Model.FirstName+" "+Model.LastName;
+}
+
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" charset="utf-8" />
+	<title>@ViewData["Title"]</title>
+</head>
+<body>
+@Html.ActionLink("<<Назад","Index");
+<table>
+	<tr>
+		<td>РШФ Id</td>
+		<td>@Model.Id</td>
+	</tr>
+	<tr>
+		<td>Фамилия</td>
+		<td>@Model.LastName</td>
+	</tr>
+	<tr>
+		<td>Имя</td>
+		<td>@Model.FirstName</td>
+	</tr>
+	<tr>
+		<td>Отчество</td>
+		<td>@Model.MiddleName</td>
+	</tr>
+	<tr>
+		<td>Возраст</td>
+		<td>@Model.Age</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			Рейтинги РШФ:
+		</td>
+	</tr>
+	<tr>
+		<td>Классика</td>
+		<td>@Model.Std</td>
+	</tr>
+	<tr>
+		<td>Быстрые</td>
+		<td>@Model.Rpd</td>
+	</tr>
+	<tr>
+		<td>Блиц</td>
+		<td>@Model.Blz</td>
+	</tr>
+</table>
+</body>
+</html>
+

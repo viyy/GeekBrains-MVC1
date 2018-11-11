@@ -1,0 +1,23 @@
+﻿
+@{
+	ViewData["Title"] = "Shop";
+}
+
+@section top{
+	@await Html.PartialAsync("Shop/Advertisement")
+}
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				@await Html.PartialAsync("Common/LeftSideBar")
+			</div>
+
+			<div class="col-sm-9 padding-right">
+				@await Html.PartialAsync("Shop/ShopItems")
+
+			</div>
+		</div>
+	</div>
+</section>

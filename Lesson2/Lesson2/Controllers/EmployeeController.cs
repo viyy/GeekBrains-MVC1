@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Lesson2.Infrastructure.Interfaces;
-using Lesson2.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebStore.Infrastructure.Interfaces;
+using WebStore.Models;
 
-namespace Lesson2.Controllers
+namespace WebStore.Controllers
 {
     public class EmployeeController : Controller
     {
@@ -53,6 +49,8 @@ namespace Lesson2.Controllers
         [HttpPost]
         public IActionResult Edit(Employee model)
         {
+            if (CalculateAge(model.Birth) < 18) ModelState.AddModelError("Age", "Сотрудник должен быть старше 18 лет.");
+            if (!ModelState.IsValid) return View(model);
             if (model.Id > 0)
             {
                 var dbItem = _emplData.GetById(model.Id);
@@ -79,6 +77,17 @@ namespace Lesson2.Controllers
         {
             _emplData.Delete(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        //utility
+        private static int CalculateAge(DateTime dateOfBirth)
+        {
+            int age;
+            age = DateTime.Now.Year - dateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                age = age - 1;
+
+            return age;
         }
     }
 }

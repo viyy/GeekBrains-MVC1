@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Lesson2.Infrastructure.Interfaces;
-using Lesson2.Models;
+using WebStore.Infrastructure.Interfaces;
+using WebStore.Models;
 
-namespace Lesson2.Infrastructure.Implementations
+namespace WebStore.Infrastructure.Implementations
 {
     public class InMemoryEmployeeData : IEmployeeDataService
     {

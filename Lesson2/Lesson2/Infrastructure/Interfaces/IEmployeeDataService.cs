@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Lesson2.Models;
+using WebStore.Models;
 
-namespace Lesson2.Infrastructure.Interfaces
+namespace WebStore.Infrastructure.Interfaces
 {
     public interface IEmployeeDataService
     {

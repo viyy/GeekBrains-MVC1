@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Lesson2.Infrastructure.Implementations;
-using Lesson2.Infrastructure.Interfaces;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using WebStore.DomainModel.DataServices;
+using WebStore.DomainModel.DataServices.Interfaces;
+using WebStore.Infrastructure.Implementations;
+using WebStore.Infrastructure.Interfaces;
 
-namespace Lesson2
+namespace WebStore
 {
     public class Startup
     {
@@ -19,6 +16,7 @@ namespace Lesson2
         {
             services.AddMvc();
             services.AddSingleton<IEmployeeDataService, InMemoryEmployeeData>();
+            services.AddSingleton<IProductData, InMemoryProductData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Lesson2.Models
+namespace WebStore.Models
 {
     public class Account
     {

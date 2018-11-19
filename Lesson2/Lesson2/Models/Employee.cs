@@ -9,7 +9,7 @@ namespace WebStore.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Имя является обязательным")]
         [Display(Name = "Имя")]
-        [StringLength(maximumLength: 200, MinimumLength = 2, ErrorMessage = "В имени должно быть не менее 2х и не более 200 символов")]
+        [StringLength(200, MinimumLength = 2, ErrorMessage = "В имени должно быть не менее 2х и не более 200 символов")]
         public string FirstName { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Фамилия является обязательной")]

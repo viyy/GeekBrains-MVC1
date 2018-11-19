@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using WebStore.DomainModel.DataServices;
-using WebStore.DomainModel.DataServices.Interfaces;
+using WebStore.DomainModels.DataServices;
+using WebStore.DomainModels.DataServices.Interfaces;
 using WebStore.Infrastructure.Implementations;
 using WebStore.Infrastructure.Interfaces;
 
@@ -23,16 +23,14 @@ namespace WebStore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
 
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

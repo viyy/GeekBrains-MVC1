@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebStore.DomainModel.DataServices.Interfaces;
+using WebStore.DomainModels.DataServices.Interfaces;
 
 namespace WebStore.Models
 {
@@ -14,16 +13,18 @@ namespace WebStore.Models
         {
             _productData = productData;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+
+        public IViewComponentResult Invoke()
         {
             var sections = GetSections();
             return View(sections);
         }
+
         private List<SectionViewModel> GetSections()
         {
             var categories = _productData.GetSections();
             var parentCategories = categories.Where(p => !p.ParentId.HasValue).ToArray();
-            var parentSections = parentCategories.Select(parentCategory => new SectionViewModel()
+            var parentSections = parentCategories.Select(parentCategory => new SectionViewModel
                 {
                     Id = parentCategory.Id,
                     Name = parentCategory.Name,
@@ -35,20 +36,17 @@ namespace WebStore.Models
             {
                 var childCategories = categories.Where(c => c.ParentId.Equals(sectionViewModel.Id));
                 foreach (var childCategory in childCategories)
-                {
-                    sectionViewModel.ChildSections.Add(new SectionViewModel()
+                    sectionViewModel.ChildSections.Add(new SectionViewModel
                     {
                         Id = childCategory.Id,
                         Name = childCategory.Name,
                         Order = childCategory.Order,
                         ParentSection = sectionViewModel
                     });
-                }
                 sectionViewModel.ChildSections = sectionViewModel.ChildSections.OrderBy(c => c.Order).ToList();
             }
             parentSections = parentSections.OrderBy(c => c.Order).ToList();
             return parentSections;
         }
-
     }
 }

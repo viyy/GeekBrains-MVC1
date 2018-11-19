@@ -1,6 +1,6 @@
-﻿using WebStore.DomainModel.Entities.Interfaces;
+﻿using WebStore.DomainModels.Entities.Interfaces;
 
-namespace WebStore.DomainModel.Entities.Classes.Base
+namespace WebStore.DomainModels.Entities.Classes.Base
 {
     public class BaseEntity : IBaseEntity
     {

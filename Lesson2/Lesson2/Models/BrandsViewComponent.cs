@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebStore.DomainModel.DataServices.Interfaces;
+using WebStore.DomainModels.DataServices.Interfaces;
 
 namespace WebStore.Models
 {
@@ -15,7 +14,7 @@ namespace WebStore.Models
             _productData = productData;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public IViewComponentResult Invoke()
         {
             var brands = GetBrands();
             return View(brands);
@@ -32,6 +31,5 @@ namespace WebStore.Models
                 Count = b.Count
             }).OrderBy(b => b.Order).ToList();
         }
-
     }
 }

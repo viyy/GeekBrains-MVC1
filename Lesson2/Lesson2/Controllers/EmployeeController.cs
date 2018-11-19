@@ -7,7 +7,6 @@ namespace WebStore.Controllers
 {
     public class EmployeeController : Controller
     {
-
         private readonly IEmployeeDataService _emplData;
 
         public EmployeeController(IEmployeeDataService emplData)
@@ -29,6 +28,7 @@ namespace WebStore.Controllers
                 return NotFound();
             return View(t);
         }
+
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -37,7 +37,7 @@ namespace WebStore.Controllers
             {
                 model = _emplData.GetById(id.Value);
                 if (model is null)
-                    return NotFound();// возвращаем результат 404 Not Found
+                    return NotFound(); // возвращаем результат 404 Not Found
             }
             else
             {
@@ -56,7 +56,7 @@ namespace WebStore.Controllers
                 var dbItem = _emplData.GetById(model.Id);
 
                 if (dbItem is null)
-                    return NotFound();// возвращаем результат 404 Not Found
+                    return NotFound(); // возвращаем результат 404 Not Found
 
                 dbItem.FirstName = model.FirstName;
                 dbItem.LastName = model.LastName;

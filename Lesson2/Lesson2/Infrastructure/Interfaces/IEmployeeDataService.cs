@@ -10,6 +10,5 @@ namespace WebStore.Infrastructure.Interfaces
         void AddNew(Employee model);
         void Commit();
         void Delete(int id);
-
     }
 }

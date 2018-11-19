@@ -1,7 +1,7 @@
-﻿using WebStore.DomainModel.Entities.Classes.Base;
-using WebStore.DomainModel.Entities.Interfaces;
+﻿using WebStore.DomainModels.Entities.Classes.Base;
+using WebStore.DomainModels.Entities.Interfaces;
 
-namespace WebStore.DomainModel.Entities.Classes
+namespace WebStore.DomainModels.Entities.Classes
 {
     public class Brand : NamedEntity, IOrderedEntity, ICountableEntity
     {

@@ -16,14 +16,13 @@ namespace WebStore.Models
         public int Order { get; set; }
 
         /// <summary>
-        /// Дочерние секции
+        ///     Дочерние секции
         /// </summary>
         public List<SectionViewModel> ChildSections { get; set; }
 
         /// <summary>
-        /// Родительская секция
+        ///     Родительская секция
         /// </summary>
         public SectionViewModel ParentSection { get; set; }
-
     }
 }

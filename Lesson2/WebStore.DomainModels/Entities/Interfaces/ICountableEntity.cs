@@ -1,4 +1,4 @@
-﻿namespace WebStore.DomainModel.Entities.Interfaces
+﻿namespace WebStore.DomainModels.Entities.Interfaces
 {
     public interface ICountableEntity
     {

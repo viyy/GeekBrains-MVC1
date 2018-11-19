@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore", "Lesson2\WebStore.csproj", "{12409558-7AED-4D21-B492-673A129E11DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.DomainModels", "WebStore.DomainModels\WebStore.DomainModels.csproj", "{E2EBD4F1-B8FF-43F3-B647-A599CD1A1CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.DomainModels", "WebStore.DomainModels\WebStore.DomainModels.csproj", "{E2EBD4F1-B8FF-43F3-B647-A599CD1A1CBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

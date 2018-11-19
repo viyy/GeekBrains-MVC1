@@ -5,67 +5,67 @@
 }
 <section>
 	<div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-			<p>
-				<a asp-action="Create">Create New</a>
-			</p>
-			<table class="table table-striped">
-				<thead class="thead-dark">
-				<tr>
-					<th>
-						Id
-					</th>
-					<th>
-						Имя
-					</th>
-					<th>
-						Всего потрачено
-					</th>
-					<th>
-						Зарегистрирован
-					</th>
-					<th>
-						Последняя покупка
-					</th>
-					<th>
-						Потрачено в последний раз
-					</th>
-					<th></th>
-				</tr>
-				</thead>
-				<tbody>
-				@foreach (var item in Model)
-				{
+		<div class="row">
+			<div class="col-sm-12">
+				<p>
+					<!--<a !asp-action="Create">Create New</a>-->
+				</p>
+				<table class="table table-striped">
+					<thead class="thead-dark">
 					<tr>
-						<td>
-							@Html.DisplayFor(modelItem => item.Id)
-						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.Name)
-						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.TotalSpent)
-						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.Registered)
-						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.LastPurchase)
-						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.LastPurchaseCost)
-						</td>
-						<td>
-							@Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
-							@Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
-							@Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
-						</td>
+						<th>
+							Id
+						</th>
+						<th>
+							Имя
+						</th>
+						<th>
+							Всего потрачено
+						</th>
+						<th>
+							Зарегистрирован
+						</th>
+						<th>
+							Последняя покупка
+						</th>
+						<th>
+							Потрачено в последний раз
+						</th>
+						<th></th>
 					</tr>
-				}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Id)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.TotalSpent)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Registered)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.LastPurchase)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.LastPurchaseCost)
+							</td>
+							<td>
+								<!--Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |-->
+								<!--Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |-->
+								<!--Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})-->
+							</td>
+						</tr>
+					}
+					</tbody>
+				</table>
+			</div>
 		</div>
-	</div>
 	</div>
 </section>

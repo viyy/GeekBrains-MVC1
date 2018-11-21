@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore", "Lesson2\WebStor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.DomainModels", "WebStore.DomainModels\WebStore.DomainModels.csproj", "{E2EBD4F1-B8FF-43F3-B647-A599CD1A1CBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.DAL", "WebStore.DAL\WebStore.DAL.csproj", "{6BFA0BA8-B1E5-49F7-93A6-AA84ADC3CC05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E2EBD4F1-B8FF-43F3-B647-A599CD1A1CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2EBD4F1-B8FF-43F3-B647-A599CD1A1CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2EBD4F1-B8FF-43F3-B647-A599CD1A1CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFA0BA8-B1E5-49F7-93A6-AA84ADC3CC05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFA0BA8-B1E5-49F7-93A6-AA84ADC3CC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFA0BA8-B1E5-49F7-93A6-AA84ADC3CC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFA0BA8-B1E5-49F7-93A6-AA84ADC3CC05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

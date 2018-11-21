@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Lesson2.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using WebStore.Models;
 
-namespace Lesson2.Controllers
+namespace WebStore.Controllers
 {
     public class AccountController : Controller
     {

@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Lesson2.Infrastructure.Interfaces;
-using Lesson2.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebStore.Infrastructure.Interfaces;
+using WebStore.Models;
 
-namespace Lesson2.Controllers
+namespace WebStore.Controllers
 {
     public class EmployeeController : Controller
     {
-
         private readonly IEmployeeDataService _emplData;
 
         public EmployeeController(IEmployeeDataService emplData)
@@ -33,6 +28,7 @@ namespace Lesson2.Controllers
                 return NotFound();
             return View(t);
         }
+
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -41,7 +37,7 @@ namespace Lesson2.Controllers
             {
                 model = _emplData.GetById(id.Value);
                 if (model is null)
-                    return NotFound();// возвращаем результат 404 Not Found
+                    return NotFound(); // возвращаем результат 404 Not Found
             }
             else
             {
@@ -53,12 +49,14 @@ namespace Lesson2.Controllers
         [HttpPost]
         public IActionResult Edit(Employee model)
         {
+            if (CalculateAge(model.Birth) < 18) ModelState.AddModelError("Age", "Сотрудник должен быть старше 18 лет.");
+            if (!ModelState.IsValid) return View(model);
             if (model.Id > 0)
             {
                 var dbItem = _emplData.GetById(model.Id);
 
                 if (dbItem is null)
-                    return NotFound();// возвращаем результат 404 Not Found
+                    return NotFound(); // возвращаем результат 404 Not Found
 
                 dbItem.FirstName = model.FirstName;
                 dbItem.LastName = model.LastName;
@@ -79,6 +77,17 @@ namespace Lesson2.Controllers
         {
             _emplData.Delete(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        //utility
+        private static int CalculateAge(DateTime dateOfBirth)
+        {
+            int age;
+            age = DateTime.Now.Year - dateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                age = age - 1;
+
+            return age;
         }
     }
 }

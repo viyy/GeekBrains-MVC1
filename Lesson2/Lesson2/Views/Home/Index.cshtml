@@ -1,26 +1,24 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+	ViewData["Title"] = "Index";
 }
 
-@section top{ 
+@section top{
 	@await Html.PartialAsync("Index/Slider")
 }
-	
+
 <section>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
 				@await Html.PartialAsync("Common/LeftSideBar")
 			</div>
-				
+
 			<div class="col-sm-9 padding-right">
 				@await Html.PartialAsync("Index/Featured")
 				@await Html.PartialAsync("Index/CategoryTab")
 				@await Html.PartialAsync("Common/RecommendedItems")
-					
+
 			</div>
 		</div>
 	</div>
 </section>
-

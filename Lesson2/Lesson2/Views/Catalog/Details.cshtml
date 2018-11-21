@@ -1,10 +1,5 @@
-﻿
-@{
-	ViewData["Title"] = "Shop";
-}
-
-@section top{
-	@await Html.PartialAsync("Shop/Advertisement")
+﻿@{
+	ViewData["Title"] = "Details";
 }
 
 <section>
@@ -15,7 +10,9 @@
 			</div>
 
 			<div class="col-sm-9 padding-right">
-				@await Html.PartialAsync("Shop/ShopItems")
+				@await Html.PartialAsync("Details/Info")
+				@await Html.PartialAsync("Details/ReviewsPanel")
+				@await Html.PartialAsync("Common/RecommendedItems")
 
 			</div>
 		</div>

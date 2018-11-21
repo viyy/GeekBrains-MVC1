@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using WebStore.DomainModels.DataServices.Interfaces;
-using WebStore.DomainModels.Entities;
+using Microsoft.EntityFrameworkCore;
+using WebStore.DAL;
 using WebStore.DomainModels.Entities.Classes;
 
-namespace WebStore.DomainModels.DataServices
+namespace WebStore.Data
 {
-    public class InMemoryProductData : IProductData
+    public class DbInitializer
     {
-        private readonly List<Brand> _brands;
-        private readonly List<Product> _products;
-        private readonly List<Section> _sections;
-
-        public InMemoryProductData()
+        public static void Initialize(WebStoreContext context)
         {
-            _sections = new List<Section>
+            context.Database.EnsureCreated();
+            // Look for any products.
+            if (context.Products.Any())
+            {
+                return; // DB has been seeded
+            }
+            var sections = new List<Section>
             {
                 new Section
                 {
@@ -228,59 +229,83 @@ namespace WebStore.DomainModels.DataServices
                     ParentId = null
                 }
             };
-            _brands = new List<Brand>
+            using (var trans = context.Database.BeginTransaction())
+            {
+                foreach (var section in sections)
+                {
+                    context.Sections.Add(section);
+                }
+
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Sections] ON");
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Sections] OFF");
+                trans.Commit();
+            }
+            var brands = new List<Brand>
             {
                 new Brand
                 {
                     Id = 1,
                     Name = "Acne",
                     Order = 0,
-                    Count = new Random().Next(10, 100)
+
                 },
                 new Brand
                 {
                     Id = 2,
                     Name = "Grüne Erde",
                     Order = 1,
-                    Count = new Random().Next(10, 100)
+
                 },
                 new Brand
                 {
                     Id = 3,
                     Name = "Albiro",
                     Order = 2,
-                    Count = new Random().Next(10, 100)
+
                 },
                 new Brand
                 {
                     Id = 4,
                     Name = "Ronhill",
                     Order = 3,
-                    Count = new Random().Next(10, 100)
+
                 },
                 new Brand
                 {
                     Id = 5,
                     Name = "Oddmolly",
                     Order = 4,
-                    Count = new Random().Next(10, 100)
+
                 },
                 new Brand
                 {
                     Id = 6,
                     Name = "Boudestijn",
                     Order = 5,
-                    Count = new Random().Next(10, 100)
+
                 },
                 new Brand
                 {
                     Id = 7,
                     Name = "Rösch creative culture",
                     Order = 6,
-                    Count = new Random().Next(10, 100)
+
                 }
             };
-            _products = new List<Product>
+            using (var trans = context.Database.BeginTransaction())
+            {
+                foreach (var brand in brands)
+                {
+                    context.Brands.Add(brand);
+                }
+
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Brands] ON");
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Brands] OFF");
+                trans.Commit();
+            }
+            var products = new List<Product>
             {
                 new Product
                 {
@@ -403,27 +428,18 @@ namespace WebStore.DomainModels.DataServices
                     BrandId = 3
                 }
             };
-        }
+            using (var trans = context.Database.BeginTransaction())
+            {
+                foreach (var product in products)
+                {
+                    context.Products.Add(product);
+                }
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Products] ON");
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Products] OFF");
+                trans.Commit();
+            }
 
-        public IEnumerable<Section> GetSections()
-        {
-            return _sections;
-        }
-
-        public IEnumerable<Brand> GetBrands()
-        {
-            return _brands;
-        }
-
-        public IEnumerable<Product> GetProducts(ProductFilter filter)
-        {
-            var products = _products;
-            if (filter.SectionId.HasValue)
-                products = products.Where(p => p.SectionId.Equals(filter.SectionId)).ToList();
-            if (filter.BrandId.HasValue)
-                products = products.Where(p => p.BrandId.HasValue && p.BrandId.Value.Equals(filter.BrandId.Value))
-                    .ToList();
-            return products;
         }
     }
 }

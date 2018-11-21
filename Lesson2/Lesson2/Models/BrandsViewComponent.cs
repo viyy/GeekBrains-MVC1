@@ -28,7 +28,7 @@ namespace WebStore.Models
                 Id = b.Id,
                 Name = b.Name,
                 Order = b.Order,
-                Count = b.Count
+                Count = b.Products.Count
             }).OrderBy(b => b.Order).ToList();
         }
     }

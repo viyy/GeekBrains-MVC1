@@ -2,8 +2,9 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.DomainModels.DataServices.Interfaces;
+using WebStore.Models;
 
-namespace WebStore.Models
+namespace WebStore.Components
 {
     public class BrandsViewComponent : ViewComponent
     {
@@ -23,7 +24,7 @@ namespace WebStore.Models
         private IEnumerable<BrandViewModel> GetBrands()
         {
             var dbBrands = _productData.GetBrands();
-            return dbBrands.Select(b => new BrandViewModel
+            return Enumerable.Select(dbBrands, b => new BrandViewModel
             {
                 Id = b.Id,
                 Name = b.Name,

@@ -1,8 +1,10 @@
-﻿using WebStore.DomainModels.Entities.Classes.Base;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using WebStore.DomainModels.Entities.Classes.Base;
 using WebStore.DomainModels.Entities.Interfaces;
 
 namespace WebStore.DomainModels.Entities.Classes
 {
+    [Table("Products")]
     public class Product : NamedEntity, IOrderedEntity
     {
         /// <summary>
@@ -10,10 +12,16 @@ namespace WebStore.DomainModels.Entities.Classes
         /// </summary>
         public int SectionId { get; set; }
 
+        [ForeignKey("SectionId")]
+        public virtual Section Section { get; set; }
+
         /// <summary>
         ///     Бренд товара
         /// </summary>
         public int? BrandId { get; set; }
+
+        [ForeignKey("BrandId")]
+        public virtual Brand Brand { get; set; }
 
         /// <summary>
         ///     Ссылка на картинку

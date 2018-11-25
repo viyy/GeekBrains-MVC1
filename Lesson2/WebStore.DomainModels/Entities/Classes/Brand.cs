@@ -1,11 +1,15 @@
-﻿using WebStore.DomainModels.Entities.Classes.Base;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using WebStore.DomainModels.Entities.Classes.Base;
 using WebStore.DomainModels.Entities.Interfaces;
 
 namespace WebStore.DomainModels.Entities.Classes
 {
-    public class Brand : NamedEntity, IOrderedEntity, ICountableEntity
+    [Table("Brands")]
+    public class Brand : NamedEntity, IOrderedEntity
     {
-        public int Count { get; set; }
         public int Order { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

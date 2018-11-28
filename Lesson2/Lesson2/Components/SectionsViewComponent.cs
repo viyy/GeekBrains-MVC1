@@ -2,8 +2,10 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.DomainModels.DataServices.Interfaces;
+using WebStore.DomainModels.Entities.Classes;
+using WebStore.Models;
 
-namespace WebStore.Models
+namespace WebStore.Components
 {
     public class SectionsViewComponent : ViewComponent
     {
@@ -23,7 +25,7 @@ namespace WebStore.Models
         private List<SectionViewModel> GetSections()
         {
             var categories = _productData.GetSections();
-            var parentCategories = categories.Where(p => !p.ParentId.HasValue).ToArray();
+            var parentCategories = Enumerable.Where<Section>(categories, p => !p.ParentId.HasValue).ToArray();
             var parentSections = parentCategories.Select(parentCategory => new SectionViewModel
                 {
                     Id = parentCategory.Id,
@@ -34,7 +36,7 @@ namespace WebStore.Models
                 .ToList();
             foreach (var sectionViewModel in parentSections)
             {
-                var childCategories = categories.Where(c => c.ParentId.Equals(sectionViewModel.Id));
+                var childCategories = Enumerable.Where<Section>(categories, c => c.ParentId.Equals(sectionViewModel.Id));
                 foreach (var childCategory in childCategories)
                     sectionViewModel.ChildSections.Add(new SectionViewModel
                     {

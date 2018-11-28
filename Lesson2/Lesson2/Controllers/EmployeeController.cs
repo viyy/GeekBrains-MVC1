@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Models;
@@ -14,13 +15,12 @@ namespace WebStore.Controllers
             _emplData = emplData;
         }
 
-        // GET: Employee
+        [Authorize]
         public ActionResult Index()
         {
             return View(_emplData.GetAll());
         }
-
-        // GET: Employee/Details/5
+        [Authorize]
         public ActionResult Details(int id)
         {
             var t = _emplData.GetById(id);
@@ -29,7 +29,7 @@ namespace WebStore.Controllers
             return View(t);
         }
 
-        [HttpGet]
+        [HttpGet, Authorize]
         public IActionResult Edit(int? id)
         {
             Employee model;
@@ -46,7 +46,7 @@ namespace WebStore.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult Edit(Employee model)
         {
             if (CalculateAge(model.Birth) < 18) ModelState.AddModelError("Age", "Сотрудник должен быть старше 18 лет.");
@@ -72,7 +72,7 @@ namespace WebStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _emplData.Delete(id);

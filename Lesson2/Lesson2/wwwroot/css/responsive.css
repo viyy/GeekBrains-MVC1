@@ -1,6 +1,4 @@
 /* lg */ 
-@media (min-width: 1200px) {
-}
 
 /* md */
 
@@ -119,6 +117,7 @@
 	.mainmenu { width: 100%; }
 
 	.mainmenu ul li {
+		background: #000000;
 		background: rgba(0, 0, 0, 0.5);
 		padding-bottom: 0;
 		padding-top: 15px;
@@ -152,7 +151,6 @@
 
 	.nav.navbar-nav > li:hover > ul.sub-menu {
 		-moz-animation: none;
-		-ms-animation: none;
 		-o-animation: none;
 		-webkit-animation: none;
 		animation: none;
@@ -191,8 +189,6 @@
 	.companyinfo { text-align: center; }
 
 	.footer-widget .col-sm-3 { display: inline-block; }
-
-	.single-widget { }
 
 	.product-information span { display: block; }
 
@@ -259,6 +255,7 @@
 	.mainmenu { width: 100%; }
 
 	.mainmenu ul li {
+		background: #000000;
 		background: rgba(0, 0, 0, 0.5);
 		padding-bottom: 0;
 		padding-top: 15px;
@@ -294,7 +291,6 @@
 
 	.nav.navbar-nav > li:hover > ul.sub-menu {
 		-moz-animation: none;
-		-ms-animation: none;
 		-o-animation: none;
 		-webkit-animation: none;
 		animation: none;

@@ -599,6 +599,7 @@ a.pp_arrow_previous, a.pp_arrow_next {
 }
 
 .pp_gallery ul a {
+	border: 1px #000000 solid;
 	border: 1px rgba(0, 0, 0, 0.5) solid;
 	display: block;
 	float: left;

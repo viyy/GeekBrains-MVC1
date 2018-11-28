@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WebStore.Models.Employee>
+﻿@using WebStore.DomainModels
+@model IEnumerable<WebStore.Models.Employee>
 
 @{
 	ViewData["Title"] = "Employees";
@@ -9,10 +10,9 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Index</h2>
-
-				<p>
+				<access roles="@WebStoreConstants.Roles.Admin" to-tag="p">
 					<a asp-action="Edit">Create New</a>
-				</p>
+				</access>
 				<table class="table">
 					<thead>
 					<tr>
@@ -54,10 +54,10 @@
 								@Html.DisplayFor(modelItem => item.Department)
 							</td>
 							<td>
-								@Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+								<access roles="@WebStoreConstants.Roles.Admin" to-tag=""> @Html.ActionLink("Edit", "Edit", new {id = item.Id}) </access>|
 								@Html.ActionLink("Details", "Details", new {id = item.Id}) |
-								@Html.ActionLink("Delete", "Delete", new {id = item.Id})
-							</td>
+								<access roles="@WebStoreConstants.Roles.Admin" to-tag="">@Html.ActionLink("Delete", "Delete", new { id = item.Id }) </access>
+</td>
 						</tr>
 					}
 					</tbody>

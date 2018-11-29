@@ -30,6 +30,8 @@ namespace WebStore.DAL
         public IEnumerable<Product> GetProducts(ProductFilter filter)
         {
             var query = _context.Products.Include("Brand").Include("Section").AsQueryable();
+            if (filter.Ids != null)
+                query = query.Where(c => filter.Ids.Contains(c.Id));
             if (filter.BrandId.HasValue)
                 query = query.Where(c => c.BrandId.HasValue && c.BrandId.Value.Equals(filter.BrandId.Value));
             if (filter.SectionId.HasValue)

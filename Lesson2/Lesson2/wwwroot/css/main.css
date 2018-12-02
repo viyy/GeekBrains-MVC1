@@ -1,11 +1,7 @@
 ﻿/*************************
 *******Typography******
 **************************/
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
-
-@import url(http://fonts.googleapis.com/css?family=Abel);
 
 body {
 	background: white;
@@ -47,7 +43,7 @@ a#scrollUp {
 	-webkit-animation: bounce 2s ease infinite;
 	animation: bounce 2s ease infinite;
 	background: #FE980F;
-	bottom: 0px;
+	bottom: 0;
 	color: #FFF;
 	padding: 5px 10px;
 	right: 10px;
@@ -78,26 +74,26 @@ a#scrollUp i { font-size: 30px; }
 	border: 0 none;
 	border-radius: 0;
 	color: #696763;
-	padding: 0px;
+	padding: 0;
 }
 
 
 .social-icons ul li { display: inline-block; }
 
 .social-icons ul li a i {
-	-moz-transition: all 0.9s ease 0s;
-	-o-transition: all 0.9s ease 0s;
-	-webkit-transition: all 0.9s ease 0s;
+	-moz-transition: all 0.9s ease 0;
+	-o-transition: all 0.9s ease 0;
+	-webkit-transition: all 0.9s ease 0;
 	padding: 11px 15px;
-	transition: all 0.9s ease 0s;
+	transition: all 0.9s ease 0;
 }
 
 .social-icons ul li a i:hover {
-	-moz-transition: all 0.9s ease 0s;
-	-o-transition: all 0.9s ease 0s;
-	-webkit-transition: all 0.9s ease 0s;
+	-moz-transition: all 0.9s ease 0;
+	-o-transition: all 0.9s ease 0;
+	-webkit-transition: all 0.9s ease 0;
 	color: #fff;
-	transition: all 0.9s ease 0s;
+	transition: all 0.9s ease 0;
 }
 
 
@@ -145,6 +141,7 @@ a#scrollUp i { font-size: 30px; }
 }
 
 .btn-group.open .dropdown-toggle {
+	background: #000000;
 	background: rgba(0, 0, 0, 0);
 	box-shadow: none;
 }
@@ -199,7 +196,7 @@ a#scrollUp i { font-size: 30px; }
 	padding-right: 15px;
 }
 
-.mainmenu ul li:first-child { padding-left: 0px; }
+.mainmenu ul li:first-child { padding-left: 0; }
 
 .mainmenu ul li a {
 	color: #696763;
@@ -240,7 +237,6 @@ a#scrollUp i { font-size: 30px; }
 
 .nav.navbar-nav > li:hover > ul.sub-menu {
 	-moz-animation: fadeInUp 400ms;
-	-ms-animation: fadeInUp 400ms;
 	-o-animation: fadeInUp 400ms;
 	-webkit-animation: fadeInUp 400ms;
 	animation: fadeInUp 400ms;
@@ -248,8 +244,11 @@ a#scrollUp i { font-size: 30px; }
 }
 
 ul.sub-menu {
+	-webkit-box-shadow: 0 3px 3px #000000;
 	-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+	background: #000000;
 	background: rgba(0, 0, 0, 0.6);
+	box-shadow: 0 3px 3px #000000;
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 	display: none;
 	left: 0;
@@ -374,7 +373,7 @@ ul.sub-menu {
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
 	font-weight: 500;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .video-gallery h2 {
@@ -382,7 +381,7 @@ ul.sub-menu {
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
 	font-weight: 300;
-	margin-top: 0px;
+	margin-top: 0;
 	text-transform: uppercase;
 }
 
@@ -623,10 +622,10 @@ h2.title:before {
 
 .category-products .panel {
 	background-color: #FFFFFF;
-	border: 0px;
-	border-radius: 0px;
+	border: 0;
+	border-radius: 0;
 	box-shadow: none;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .category-products .panel-default .panel-heading {
@@ -795,10 +794,9 @@ h2.title {
 	display: none;
 	display: block;
 	height: 0;
-	opacity: ;
 	position: absolute;
 	top: 0;
-	transition: height 500ms ease 0s;
+	transition: height 500ms ease 0;
 	width: 100%;
 }
 
@@ -916,7 +914,7 @@ h2.title {
 	-moz-border-right-colors: none;
 	-moz-border-top-colors: none;
 	background-color: #FE980F;
-	border: 0px;
+	border: 0;
 	color: #FFFFFF;
 	cursor: default;
 	margin-left: 0;
@@ -924,6 +922,7 @@ h2.title {
 }
 
 .nav-tabs li a {
+	border: 1px solid #000000;
 	border: 1px solid rgba(0, 0, 0, 0);
 	border-radius: 4px 4px 0 0;
 	line-height: 1.42857;
@@ -948,7 +947,6 @@ h2.title {
 
 .recommended-item-control i:hover { background: #ccccc6; }
 
-.recommended_items h2 { }
 
 .our_partners { overflow: hidden; }
 
@@ -1059,7 +1057,7 @@ h2.title {
 	right: 0;
 }
 
-#similar-product .carousel-inner .item { padding-left: 0px; }
+#similar-product .carousel-inner .item { padding-left: 0; }
 
 #similar-product .carousel-inner .item img {
 	display: inline-block;
@@ -1121,7 +1119,7 @@ h2.title {
 	font-size: 30px;
 	font-weight: 700;
 	margin-right: 20px;
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .product-information span input {
@@ -1285,10 +1283,6 @@ h2.title {
 	overflow: hidden;
 }
 
-.login-form { }
-
-.signup-form { }
-
 .login-form h2, .signup-form h2 {
 	color: #696763;
 	font-family: 'Roboto', sans-serif;
@@ -1333,8 +1327,6 @@ h2.title {
 	font-family: 'Roboto', sans-serif;
 	padding: 6px 25px;
 }
-
-.login-form label { }
 
 
 .login-form label input {
@@ -1471,7 +1463,7 @@ h2.title {
 	float: left;
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	text-align: center;  
+	text-align: center;
 }
 
 
@@ -1562,8 +1554,6 @@ h2.title {
 	float: left;
 	margin-right: 10px
 }
-
-.user_info > li > span { }
 
 .user_info input, select, textarea {
 	background: #F0F0E9;
@@ -1785,8 +1775,6 @@ h2.title {
 	margin-bottom: 17px;
 	text-transform: uppercase;
 }
-
-.single-blog-post > a { }
 
 .blog-post-area
 .single-blog-post a img {

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 /*
 Animate.css - http://daneden.me/animate
@@ -210,7 +210,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { -webkit-transform: rotate(-5deg); }
 
-	100% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(0); }
 }
 
 @-moz-keyframes swing {
@@ -222,7 +222,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { -moz-transform: rotate(-5deg); }
 
-	100% { -moz-transform: rotate(0deg); }
+	100% { -moz-transform: rotate(0); }
 }
 
 @-o-keyframes swing {
@@ -234,7 +234,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { -o-transform: rotate(-5deg); }
 
-	100% { -o-transform: rotate(0deg); }
+	100% { -o-transform: rotate(0); }
 }
 
 @keyframes swing {
@@ -246,7 +246,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { transform: rotate(-5deg); }
 
-	100% { transform: rotate(0deg); }
+	100% { transform: rotate(0); }
 }
 
 .animated.swing {
@@ -263,7 +263,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
 @-webkit-keyframes wobble {
-	0% { -webkit-transform: translateX(0%); }
+	0% { -webkit-transform: translateX(0); }
 
 	15% { -webkit-transform: translateX(-25%) rotate(-5deg); }
 
@@ -275,11 +275,11 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	75% { -webkit-transform: translateX(-5%) rotate(-1deg); }
 
-	100% { -webkit-transform: translateX(0%); }
+	100% { -webkit-transform: translateX(0); }
 }
 
 @-moz-keyframes wobble {
-	0% { -moz-transform: translateX(0%); }
+	0% { -moz-transform: translateX(0); }
 
 	15% { -moz-transform: translateX(-25%) rotate(-5deg); }
 
@@ -291,11 +291,11 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	75% { -moz-transform: translateX(-5%) rotate(-1deg); }
 
-	100% { -moz-transform: translateX(0%); }
+	100% { -moz-transform: translateX(0); }
 }
 
 @-o-keyframes wobble {
-	0% { -o-transform: translateX(0%); }
+	0% { -o-transform: translateX(0); }
 
 	15% { -o-transform: translateX(-25%) rotate(-5deg); }
 
@@ -307,11 +307,11 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	75% { -o-transform: translateX(-5%) rotate(-1deg); }
 
-	100% { -o-transform: translateX(0%); }
+	100% { -o-transform: translateX(0); }
 }
 
 @keyframes wobble {
-	0% { transform: translateX(0%); }
+	0% { transform: translateX(0); }
 
 	15% { transform: translateX(-25%) rotate(-5deg); }
 
@@ -323,7 +323,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	75% { transform: translateX(-5%) rotate(-1deg); }
 
-	100% { transform: translateX(0%); }
+	100% { transform: translateX(0); }
 }
 
 .animated.wobble {
@@ -486,7 +486,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-moz-animation-name: flip;
 	-moz-backface-visibility: visible !important;
 	-o-animation-name: flip;
-	-o-backface-visibility: visible !important;
 	-webkit-animation-name: flip;
 	-webkit-backface-visibility: visible !important;
 	animation-name: flip;
@@ -504,7 +503,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	70% { -webkit-transform: perspective(400px) rotateX(10deg); }
 
 	100% {
-		-webkit-transform: perspective(400px) rotateX(0deg);
+		-webkit-transform: perspective(400px) rotateX(0);
 		opacity: 1;
 	}
 }
@@ -520,7 +519,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	70% { -moz-transform: perspective(400px) rotateX(10deg); }
 
 	100% {
-		-moz-transform: perspective(400px) rotateX(0deg);
+		-moz-transform: perspective(400px) rotateX(0);
 		opacity: 1;
 	}
 }
@@ -536,7 +535,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	70% { -o-transform: perspective(400px) rotateX(10deg); }
 
 	100% {
-		-o-transform: perspective(400px) rotateX(0deg);
+		-o-transform: perspective(400px) rotateX(0);
 		opacity: 1;
 	}
 }
@@ -553,7 +552,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	100% {
 		opacity: 1;
-		transform: perspective(400px) rotateX(0deg);
+		transform: perspective(400px) rotateX(0);
 	}
 }
 
@@ -561,7 +560,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-moz-animation-name: flipInX;
 	-moz-backface-visibility: visible !important;
 	-o-animation-name: flipInX;
-	-o-backface-visibility: visible !important;
 	-webkit-animation-name: flipInX;
 	-webkit-backface-visibility: visible !important;
 	animation-name: flipInX;
@@ -570,7 +568,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-webkit-keyframes flipOutX {
 	0% {
-		-webkit-transform: perspective(400px) rotateX(0deg);
+		-webkit-transform: perspective(400px) rotateX(0);
 		opacity: 1;
 	}
 
@@ -582,7 +580,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-moz-keyframes flipOutX {
 	0% {
-		-moz-transform: perspective(400px) rotateX(0deg);
+		-moz-transform: perspective(400px) rotateX(0);
 		opacity: 1;
 	}
 
@@ -594,7 +592,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-o-keyframes flipOutX {
 	0% {
-		-o-transform: perspective(400px) rotateX(0deg);
+		-o-transform: perspective(400px) rotateX(0);
 		opacity: 1;
 	}
 
@@ -607,7 +605,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 @keyframes flipOutX {
 	0% {
 		opacity: 1;
-		transform: perspective(400px) rotateX(0deg);
+		transform: perspective(400px) rotateX(0);
 	}
 
 	100% {
@@ -620,7 +618,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-moz-animation-name: flipOutX;
 	-moz-backface-visibility: visible !important;
 	-o-animation-name: flipOutX;
-	-o-backface-visibility: visible !important;
 	-webkit-animation-name: flipOutX;
 	-webkit-backface-visibility: visible !important;
 	animation-name: flipOutX;
@@ -638,7 +635,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	70% { -webkit-transform: perspective(400px) rotateY(10deg); }
 
 	100% {
-		-webkit-transform: perspective(400px) rotateY(0deg);
+		-webkit-transform: perspective(400px) rotateY(0);
 		opacity: 1;
 	}
 }
@@ -654,7 +651,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	70% { -moz-transform: perspective(400px) rotateY(10deg); }
 
 	100% {
-		-moz-transform: perspective(400px) rotateY(0deg);
+		-moz-transform: perspective(400px) rotateY(0);
 		opacity: 1;
 	}
 }
@@ -670,7 +667,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	70% { -o-transform: perspective(400px) rotateY(10deg); }
 
 	100% {
-		-o-transform: perspective(400px) rotateY(0deg);
+		-o-transform: perspective(400px) rotateY(0);
 		opacity: 1;
 	}
 }
@@ -687,7 +684,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	100% {
 		opacity: 1;
-		transform: perspective(400px) rotateY(0deg);
+		transform: perspective(400px) rotateY(0);
 	}
 }
 
@@ -695,7 +692,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-moz-animation-name: flipInY;
 	-moz-backface-visibility: visible !important;
 	-o-animation-name: flipInY;
-	-o-backface-visibility: visible !important;
 	-webkit-animation-name: flipInY;
 	-webkit-backface-visibility: visible !important;
 	animation-name: flipInY;
@@ -704,7 +700,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-webkit-keyframes flipOutY {
 	0% {
-		-webkit-transform: perspective(400px) rotateY(0deg);
+		-webkit-transform: perspective(400px) rotateY(0);
 		opacity: 1;
 	}
 
@@ -716,7 +712,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-moz-keyframes flipOutY {
 	0% {
-		-moz-transform: perspective(400px) rotateY(0deg);
+		-moz-transform: perspective(400px) rotateY(0);
 		opacity: 1;
 	}
 
@@ -728,7 +724,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-o-keyframes flipOutY {
 	0% {
-		-o-transform: perspective(400px) rotateY(0deg);
+		-o-transform: perspective(400px) rotateY(0);
 		opacity: 1;
 	}
 
@@ -741,7 +737,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 @keyframes flipOutY {
 	0% {
 		opacity: 1;
-		transform: perspective(400px) rotateY(0deg);
+		transform: perspective(400px) rotateY(0);
 	}
 
 	100% {
@@ -754,7 +750,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-moz-animation-name: flipOutY;
 	-moz-backface-visibility: visible !important;
 	-o-animation-name: flipOutY;
-	-o-backface-visibility: visible !important;
 	-webkit-animation-name: flipOutY;
 	-webkit-backface-visibility: visible !important;
 	animation-name: flipOutY;
@@ -3155,7 +3150,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 
 	100% {
-		-webkit-transform: translateX(0px) rotate(0deg);
+		-webkit-transform: translateX(0) rotate(0);
 		opacity: 1;
 	}
 }
@@ -3167,7 +3162,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 
 	100% {
-		-moz-transform: translateX(0px) rotate(0deg);
+		-moz-transform: translateX(0) rotate(0);
 		opacity: 1;
 	}
 }
@@ -3179,7 +3174,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 
 	100% {
-		-o-transform: translateX(0px) rotate(0deg);
+		-o-transform: translateX(0) rotate(0);
 		opacity: 1;
 	}
 }
@@ -3192,7 +3187,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	100% {
 		opacity: 1;
-		transform: translateX(0px) rotate(0deg);
+		transform: translateX(0) rotate(0);
 	}
 }
 
@@ -3207,7 +3202,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-webkit-keyframes rollOut {
 	0% {
-		-webkit-transform: translateX(0px) rotate(0deg);
+		-webkit-transform: translateX(0) rotate(0);
 		opacity: 1;
 	}
 
@@ -3219,7 +3214,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-moz-keyframes rollOut {
 	0% {
-		-moz-transform: translateX(0px) rotate(0deg);
+		-moz-transform: translateX(0) rotate(0);
 		opacity: 1;
 	}
 
@@ -3231,7 +3226,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-o-keyframes rollOut {
 	0% {
-		-o-transform: translateX(0px) rotate(0deg);
+		-o-transform: translateX(0) rotate(0);
 		opacity: 1;
 	}
 
@@ -3244,7 +3239,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 @keyframes rollOut {
 	0% {
 		opacity: 1;
-		transform: translateX(0px) rotate(0deg);
+		transform: translateX(0) rotate(0);
 	}
 
 	100% {
@@ -3274,12 +3269,12 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 
 	80% {
-		-webkit-transform: translateX(0%) skewX(-15deg);
+		-webkit-transform: translateX(0) skewX(-15deg);
 		opacity: 1;
 	}
 
 	100% {
-		-webkit-transform: translateX(0%) skewX(0deg);
+		-webkit-transform: translateX(0) skewX(0);
 		opacity: 1;
 	}
 }
@@ -3296,12 +3291,12 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 
 	80% {
-		-moz-transform: translateX(0%) skewX(-15deg);
+		-moz-transform: translateX(0) skewX(-15deg);
 		opacity: 1;
 	}
 
 	100% {
-		-moz-transform: translateX(0%) skewX(0deg);
+		-moz-transform: translateX(0) skewX(0);
 		opacity: 1;
 	}
 }
@@ -3318,12 +3313,12 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	}
 
 	80% {
-		-o-transform: translateX(0%) skewX(-15deg);
+		-o-transform: translateX(0) skewX(-15deg);
 		opacity: 1;
 	}
 
 	100% {
-		-o-transform: translateX(0%) skewX(0deg);
+		-o-transform: translateX(0) skewX(0);
 		opacity: 1;
 	}
 }
@@ -3341,12 +3336,12 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% {
 		opacity: 1;
-		transform: translateX(0%) skewX(-15deg);
+		transform: translateX(0) skewX(-15deg);
 	}
 
 	100% {
 		opacity: 1;
-		transform: translateX(0%) skewX(0deg);
+		transform: translateX(0) skewX(0);
 	}
 }
 
@@ -3373,7 +3368,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-webkit-keyframes lightSpeedOut {
 	0% {
-		-webkit-transform: translateX(0%) skewX(0deg);
+		-webkit-transform: translateX(0) skewX(0);
 		opacity: 1;
 	}
 
@@ -3385,7 +3380,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-moz-keyframes lightSpeedOut {
 	0% {
-		-moz-transform: translateX(0%) skewX(0deg);
+		-moz-transform: translateX(0) skewX(0);
 		opacity: 1;
 	}
 
@@ -3397,7 +3392,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-o-keyframes lightSpeedOut {
 	0% {
-		-o-transform: translateX(0%) skewX(0deg);
+		-o-transform: translateX(0) skewX(0);
 		opacity: 1;
 	}
 
@@ -3410,7 +3405,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 @keyframes lightSpeedOut {
 	0% {
 		opacity: 1;
-		transform: translateX(0%) skewX(0deg);
+		transform: translateX(0) skewX(0);
 	}
 
 	100% {
@@ -3459,9 +3454,9 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { -webkit-transform: skewX(1deg); }
 
-	90% { -webkit-transform: skewX(0deg); }
+	90% { -webkit-transform: skewX(0); }
 
-	100% { -webkit-transform: skewX(0deg); }
+	100% { -webkit-transform: skewX(0); }
 }
 
 @-moz-keyframes wiggle {
@@ -3483,9 +3478,9 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { -moz-transform: skewX(1deg); }
 
-	90% { -moz-transform: skewX(0deg); }
+	90% { -moz-transform: skewX(0); }
 
-	100% { -moz-transform: skewX(0deg); }
+	100% { -moz-transform: skewX(0); }
 }
 
 @-o-keyframes wiggle {
@@ -3507,9 +3502,9 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { -o-transform: skewX(1deg); }
 
-	90% { -o-transform: skewX(0deg); }
+	90% { -o-transform: skewX(0); }
 
-	100% { -o-transform: skewX(0deg); }
+	100% { -o-transform: skewX(0); }
 }
 
 @keyframes wiggle {
@@ -3531,9 +3526,9 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 	80% { transform: skewX(1deg); }
 
-	90% { transform: skewX(0deg); }
+	90% { transform: skewX(0); }
 
-	100% { transform: skewX(0deg); }
+	100% { transform: skewX(0); }
 }
 
 .animated.wiggle {

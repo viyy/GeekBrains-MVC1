@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,8 @@ namespace WebStore
         {
             services.AddMvc();
             services.AddSingleton<IEmployeeDataService, InMemoryEmployeeData>();
+            services.AddHttpContextAccessor();
+            services.AddScoped<ICartService, CookieCartService>();
             services.AddTransient<IProductData, ProductData>();
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));

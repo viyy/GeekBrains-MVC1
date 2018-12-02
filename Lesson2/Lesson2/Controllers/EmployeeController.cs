@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebSockets.Internal;
+using WebStore.DomainModels;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Models;
 
@@ -29,7 +31,7 @@ namespace WebStore.Controllers
             return View(t);
         }
 
-        [HttpGet, Authorize]
+        [HttpGet, Authorize(Roles = WebStoreConstants.Roles.Admin)]
         public IActionResult Edit(int? id)
         {
             Employee model;
@@ -46,7 +48,7 @@ namespace WebStore.Controllers
             return View(model);
         }
 
-        [HttpPost, Authorize]
+        [HttpPost, Authorize(Roles = WebStoreConstants.Roles.Admin)]
         public IActionResult Edit(Employee model)
         {
             if (CalculateAge(model.Birth) < 18) ModelState.AddModelError("Age", "Сотрудник должен быть старше 18 лет.");
@@ -72,7 +74,7 @@ namespace WebStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize]
+        [Authorize(Roles = WebStoreConstants.Roles.Admin)]
         public IActionResult Delete(int id)
         {
             _emplData.Delete(id);

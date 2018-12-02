@@ -1,8 +1,13 @@
-﻿<div class="product-details">
+﻿@model WebStore.Models.ProductViewModel
+@{
+	ViewData["Title"] = "Товар:" + Model.Name;
+}
+
+<div class="product-details">
 	<!--product-details-->
 	<div class="col-sm-5">
 		<div class="view-product">
-			<img src="~/images/product-details/1.jpg" alt="">
+			<img src="~/images/product-details/@Model.ImageUrl" alt="">
 			<h3>ZOOM</h3>
 		</div>
 		<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -59,17 +64,17 @@
 		<div class="product-information">
 			<!--/product-information-->
 			<img src="~/images/product-details/new.jpg" class="newarrival" alt="">
-			<h2>Anne Klein Sleeveless Colorblock Scuba</h2>
+			<h2>@Model.Name</h2>
 			<p>Web ID: 1089772</p>
 			<img src="~/images/product-details/rating.png" alt="">
 			<span>
-				<span>US $59</span>
+				<span>@Model.Price.ToString("C")</span>
 				<label>Quantity:</label>
 				<input type="text" value="3">
-				<button type="button" class="btn btn-fefault cart">
-					<i class="fa fa-shopping-cart"></i>
-					Add to cart
-				</button>
+				<a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path" class="btn btn-fefault cart">
+
+	<i class="fa fa-shopping-cart"></i>
+	Add to cart</a>
 			</span>
 			<p>
 				<b>Availability:</b> In Stock
@@ -78,7 +83,7 @@
 				<b>Condition:</b> New
 			</p>
 			<p>
-				<b>Brand:</b> E-SHOPPER
+				<b>Brand:</b> @Model.Brand
 			</p>
 			<a href="">
 				<img src="~/images/product-details/share.png" class="share img-responsive" alt="">

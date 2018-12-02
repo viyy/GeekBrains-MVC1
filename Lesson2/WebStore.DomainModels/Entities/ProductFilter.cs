@@ -1,4 +1,6 @@
-﻿namespace WebStore.DomainModels.Entities
+﻿using System.Collections.Generic;
+
+namespace WebStore.DomainModels.Entities
 {
     public class ProductFilter
     {
@@ -8,5 +10,6 @@
         ///     Бренд товара
         /// </summary>
         public int? BrandId { get; set; }
+        public List<int> Ids { get; set; }
     }
 }

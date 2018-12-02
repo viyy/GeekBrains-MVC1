@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebStore.DomainModels;
 using WebStore.DomainModels.Entities.Classes;
 using WebStore.Models;
 
@@ -67,6 +68,7 @@ namespace WebStore.Controllers
             if (createResult.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);//если успешно - производим логин
+                await _userManager.AddToRoleAsync(user, WebStoreConstants.Roles.User);
                 RedirectToAction("Index", "Home");
             }
             else//иначе

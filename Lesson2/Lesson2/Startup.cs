@@ -33,6 +33,8 @@ namespace WebStore
             services.AddHttpContextAccessor();
             services.AddScoped<ICartService, CookieCartService>();
             services.AddTransient<IProductData, ProductData>();
+            services.AddScoped<IOrderService, SqlOrderService>();
+
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
 
@@ -76,6 +78,11 @@ namespace WebStore
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    "areas",
+                    "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
                 routes.MapRoute(
                     "default",
                     "{controller=Home}/{action=Index}/{id?}");

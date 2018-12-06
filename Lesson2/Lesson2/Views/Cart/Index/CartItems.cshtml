@@ -1,4 +1,5 @@
-﻿@model WebStore.Models.CartViewModel
+﻿@using WebStore.DomainModels.Models
+@model WebStore.DomainModels.Models.CartViewModel
 @{
 	ViewData["Title"] = "Корзина";
 }
@@ -30,7 +31,7 @@
 							<a href=""><img src="~/images/shop/@item.Key.ImageUrl" alt=""></a>
 						</td>
 						<td class="cart_description">
-							<h4><a asp-action="ProductDetails" asp-controller="Catalog" asp-route-id="@item.Key.Id">@item.Key.Name</a></h4>
+							<h4><a asp-action="Details" asp-controller="Catalog" asp-route-id="@item.Key.Id">@item.Key.Name</a></h4>
 							<p>Артикул: 1089772</p>
 						</td>
 						<td class="cart_price">

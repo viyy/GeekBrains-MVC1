@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.DomainModels;
 using WebStore.DomainModels.Entities.Classes;
-using WebStore.Models;
+using WebStore.DomainModels.Models;
 
 namespace WebStore.Controllers
 {

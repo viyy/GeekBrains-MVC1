@@ -1,4 +1,4 @@
-﻿using WebStore.DomainModels.Entities.Interfaces;
+﻿using WebStore.DomainModels.Interfaces;
 
 namespace WebStore.DomainModels.Entities.Classes.Base
 {

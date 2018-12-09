@@ -33,7 +33,7 @@ namespace WebStore
             services.AddTransient<IProductData, ProductData>();
             services.AddScoped<IOrderService, SqlOrderService>();
             services.AddTransient<IValuesService, ValuesClient>();
-
+            services.AddTransient<IEmployeesData, EmployeeClient>();
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
 

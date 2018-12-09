@@ -1,17 +1,16 @@
 ﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebStore.Clients;
 using WebStore.DAL;
-using WebStore.DomainModels.DataServices;
-using WebStore.DomainModels.DataServices.Interfaces;
 using WebStore.DomainModels.Entities.Classes;
-using WebStore.Infrastructure.Implementations;
-using WebStore.Infrastructure.Interfaces;
+using WebStore.DomainModels.Interfaces;
+using WebStore.Interfaces.Services;
+using WebStore.Services;
 
 namespace WebStore
 {
@@ -29,11 +28,11 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IEmployeeDataService, InMemoryEmployeeData>();
             services.AddHttpContextAccessor();
             services.AddScoped<ICartService, CookieCartService>();
             services.AddTransient<IProductData, ProductData>();
             services.AddScoped<IOrderService, SqlOrderService>();
+            services.AddTransient<IValuesService, ValuesClient>();
 
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));

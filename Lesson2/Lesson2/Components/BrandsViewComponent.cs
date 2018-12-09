@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using WebStore.DomainModels.DataServices.Interfaces;
-using WebStore.Models;
+using WebStore.DomainModels;
+using WebStore.DomainModels.Interfaces;
+using WebStore.DomainModels.Models;
 
 namespace WebStore.Components
 {

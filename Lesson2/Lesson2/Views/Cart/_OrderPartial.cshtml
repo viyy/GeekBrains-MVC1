@@ -1,5 +1,5 @@
-﻿@using WebStore.Models
-@model WebStore.Models.OrderViewModel
+﻿@using WebStore.DomainModels.Models
+@model WebStore.DomainModels.Models.OrderViewModel
 <form method="post" asp-antiforgery="true" asp-action="CheckOut">
 	<div class="col-sm-6">
 		<input asp-for="Name" placeholder="@nameof(@Model.Name)" />

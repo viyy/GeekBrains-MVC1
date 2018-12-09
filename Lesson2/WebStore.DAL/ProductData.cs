@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using WebStore.DomainModels.DataServices.Interfaces;
+using WebStore.DomainModels;
 using WebStore.DomainModels.Entities;
 using WebStore.DomainModels.Entities.Classes;
+using WebStore.DomainModels.Interfaces;
 
 namespace WebStore.DAL
 {

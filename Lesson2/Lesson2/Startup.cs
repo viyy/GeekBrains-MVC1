@@ -30,8 +30,8 @@ namespace WebStore
             services.AddMvc();
             services.AddHttpContextAccessor();
             services.AddScoped<ICartService, CookieCartService>();
-            services.AddTransient<IProductData, ProductData>();
-            services.AddScoped<IOrderService, SqlOrderService>();
+            services.AddTransient<IProductData, ProductsClient>();
+            services.AddScoped<IOrderService, OrdersClient>();
             services.AddTransient<IValuesService, ValuesClient>();
             services.AddTransient<IEmployeesData, EmployeeClient>();
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(

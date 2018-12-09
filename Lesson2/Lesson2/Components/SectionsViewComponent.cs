@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.DomainModels;
+using WebStore.DomainModels.Dto;
 using WebStore.DomainModels.Entities.Classes;
 using WebStore.DomainModels.Interfaces;
 using WebStore.DomainModels.Models;
@@ -26,7 +27,8 @@ namespace WebStore.Components
         private List<SectionViewModel> GetSections()
         {
             var categories = _productData.GetSections();
-            var parentCategories = Enumerable.Where<Section>(categories, p => !p.ParentId.HasValue).ToArray();
+            var sectionDtos = categories as SectionDto[] ?? categories.ToArray();
+            var parentCategories = sectionDtos.Where(p => !p.ParentId.HasValue).ToArray();
             var parentSections = parentCategories.Select(parentCategory => new SectionViewModel
                 {
                     Id = parentCategory.Id,
@@ -37,7 +39,7 @@ namespace WebStore.Components
                 .ToList();
             foreach (var sectionViewModel in parentSections)
             {
-                var childCategories = Enumerable.Where<Section>(categories, c => c.ParentId.Equals(sectionViewModel.Id));
+                var childCategories = sectionDtos.Where(c => c.ParentId.Equals(sectionViewModel.Id));
                 foreach (var childCategory in childCategories)
                     sectionViewModel.ChildSections.Add(new SectionViewModel
                     {

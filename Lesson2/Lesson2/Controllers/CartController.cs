@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebStore.DomainModels.Dto;
 using WebStore.DomainModels.Models;
 using WebStore.Interfaces.Services;
 
@@ -56,7 +57,8 @@ namespace WebStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var orderResult = _orderService.CreateOrder(model, _cartService.TransformCart(), User.Identity.Name);
+                //TODO: fix create order
+                var orderResult = _orderService.CreateOrder(new CreateOrderModel(), User.Identity.Name);
                 _cartService.RemoveAll();
                 return RedirectToAction("OrderConfirmed", new { id = orderResult.Id });
             }

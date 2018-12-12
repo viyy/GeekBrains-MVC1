@@ -30,7 +30,7 @@ namespace WebStore.Components
                 Id = b.Id,
                 Name = b.Name,
                 Order = b.Order,
-                Count = b.Products.Count
+                //Count = b.Products.Count
             }).OrderBy(b => b.Order).ToList();
         }
     }

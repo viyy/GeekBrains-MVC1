@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,10 +28,9 @@ namespace WebStore.Controllers
 
         public IActionResult Orders()
         {
-            var orders = _ordersService.GetUserOrders(User.Identity.Name);
-            var enumerable = orders as IList<Order> ?? orders.ToList();
-            var orderModels = new List<UserOrderViewModel>(enumerable.Count);
-            orderModels.AddRange(enumerable.Select(order => new UserOrderViewModel
+            var orders = _ordersService.GetUserOrders(User.Identity.Name).ToList();
+            var orderModels = new List<UserOrderViewModel>(orders.Count);
+            orderModels.AddRange(orders.Select(order => new UserOrderViewModel
             {
                 Id = order.Id,
                 Name = order.Name,

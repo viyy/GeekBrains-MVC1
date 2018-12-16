@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using WebStore.DAL;
 using WebStore.DomainModels.Entities.Classes;
 
-namespace WebStore.Data
+namespace WebStore.ServicesHosting
 {
     public class DbInitializer
     {

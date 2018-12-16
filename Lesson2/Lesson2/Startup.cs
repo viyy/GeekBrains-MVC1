@@ -33,13 +33,27 @@ namespace WebStore
             services.AddTransient<IProductData, ProductsClient>();
             services.AddScoped<IOrderService, OrdersClient>();
             services.AddTransient<IValuesService, ValuesClient>();
-            services.AddTransient<IEmployeesData, EmployeeClient>();
-            services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IEmployeesData, EmployeeClient>();
 
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<WebStoreContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddTransient<IUserStoreClient, UserStoreClient>();
+
+            services.AddTransient<IUserStore<User>, UsersClient>();
+
+            services.AddTransient<IUserRoleStore<User>, UserRoleClient>();
+            services.AddTransient<IUserClaimStore<User>, UsersClient>();
+            services.AddTransient<IUserPasswordStore<User>, UsersClient>();
+            services.AddTransient<IUserTwoFactorStore<User>, UsersClient>();
+            services.AddTransient<IUserEmailStore<User>, UsersClient>();
+            services.AddTransient<IUserPhoneNumberStore<User>, UsersClient>();
+            services.AddTransient<IUserLoginStore<User>, UsersClient>();
+            services.AddTransient<IUserLockoutStore<User>, UsersClient>();
+
+            services.AddTransient<IRoleStore<IdentityRole>, RolesClient>();
+            //services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
+                //Configuration.GetConnectionString("DefaultConnection")));
 
             services.Configure<IdentityOptions>(options =>
             {

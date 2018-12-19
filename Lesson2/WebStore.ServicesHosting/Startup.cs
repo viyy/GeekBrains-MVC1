@@ -40,7 +40,7 @@ namespace WebStore.ServicesHosting
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
             // Настройки для корзины
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ICartService, CookieCartService>();
+            services.AddScoped<ICartService, CartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

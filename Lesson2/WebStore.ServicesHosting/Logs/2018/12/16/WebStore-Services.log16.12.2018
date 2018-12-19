@@ -1,0 +1,457 @@
+WARN  1 2018-12-16 17:31:29,227 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  1 2018-12-16 17:31:29,263 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+INFO  1 2018-12-16 17:31:29,441 [1] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  1 2018-12-16 17:31:31,430 [1] ?     - Executed DbCommand (120ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+
+INFO  1 2018-12-16 17:31:31,871 [1] ?     - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+
+INFO  8 2018-12-16 17:31:32,261 [8] ?     - Executed DbCommand (89ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+
+INFO  10 2018-12-16 17:31:32,397 [10] ?     - Executed DbCommand (9ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+
+INFO  8 2018-12-16 17:31:32,433 [8] ?     - Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+
+INFO  9 2018-12-16 17:31:32,884 [9] ?     - Request starting HTTP/1.1 DEBUG http://localhost:54244/  0
+
+INFO  10 2018-12-16 17:31:32,885 [10] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/values  
+
+INFO  8 2018-12-16 17:31:32,890 [8] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/values  
+
+INFO  9 2018-12-16 17:31:32,932 [9] ?     - Request finished in 94.9678ms 200 
+
+INFO  8 2018-12-16 17:31:33,216 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  10 2018-12-16 17:31:33,218 [10] ?     - Executing action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  8 2018-12-16 17:31:33,235 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  10 2018-12-16 17:31:33,237 [10] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:31:33,321 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) in 116.7981ms
+
+INFO  10 2018-12-16 17:31:33,327 [10] ?     - Executed action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) in 116.8027ms
+
+INFO  10 2018-12-16 17:31:33,334 [10] ?     - Request finished in 495.5186ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:31:33,337 [8] ?     - Request finished in 495.3042ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:31:37,227 [9] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/sections  
+
+INFO  9 2018-12-16 17:31:37,239 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  9 2018-12-16 17:31:37,256 [9] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  9 2018-12-16 17:31:37,324 [9] ?     - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[Order], [c].[ParentId]
+FROM [Sections] AS [c]
+
+INFO  9 2018-12-16 17:31:37,333 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:31:37,360 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) in 121.8726ms
+
+INFO  9 2018-12-16 17:31:37,363 [9] ?     - Request finished in 135.8329ms 200 application/json; charset=utf-8
+
+INFO  11 2018-12-16 17:31:37,749 [11] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/brands  
+
+INFO  11 2018-12-16 17:31:37,754 [11] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  11 2018-12-16 17:31:37,759 [11] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  11 2018-12-16 17:31:37,769 [11] ?     - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[Name], [b].[Order]
+FROM [Brands] AS [b]
+
+INFO  11 2018-12-16 17:31:37,773 [11] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  11 2018-12-16 17:31:37,782 [11] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) in 26.0756ms
+
+INFO  11 2018-12-16 17:31:37,786 [11] ?     - Request finished in 35.3933ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:32:17,699 [8] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/users/user/normal/NELFIAS  
+
+INFO  8 2018-12-16 17:32:17,766 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.FindByNameAsync (WebStore.ServicesHosting) with arguments (NELFIAS) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:17,773 [8] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  24 2018-12-16 17:32:17,787 [24] ?     - Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+
+INFO  9 2018-12-16 17:32:17,798 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:17,812 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.FindByNameAsync (WebStore.ServicesHosting) in 85.9976ms
+
+INFO  9 2018-12-16 17:32:17,815 [9] ?     - Request finished in 115.6898ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:17,881 [24] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/GetLockoutEnabled application/json; charset=utf-8 
+
+INFO  24 2018-12-16 17:32:17,917 [24] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetLockoutEnabledAsync (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  24 2018-12-16 17:32:17,922 [24] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  24 2018-12-16 17:32:17,926 [24] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetLockoutEnabledAsync (WebStore.ServicesHosting) in 23.5088ms
+
+INFO  24 2018-12-16 17:32:17,933 [24] ?     - Request finished in 53.4942ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:17,952 [9] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/getPasswordHash application/json; charset=utf-8 
+
+INFO  9 2018-12-16 17:32:18,003 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetPasswordHashAsync (WebStore.ServicesHosting) with arguments (Nelfias) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:18,008 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:18,013 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetPasswordHashAsync (WebStore.ServicesHosting) in 46.7106ms
+
+INFO  9 2018-12-16 17:32:18,019 [9] ?     - Request finished in 65.5027ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:18,065 [24] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/getTwoFactorEnabled application/json; charset=utf-8 
+
+INFO  9 2018-12-16 17:32:18,087 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetTwoFactorEnabledAsync (WebStore.ServicesHosting) with arguments (Nelfias) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:18,092 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:18,097 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetTwoFactorEnabledAsync (WebStore.ServicesHosting) in 22.1016ms
+
+INFO  9 2018-12-16 17:32:18,102 [9] ?     - Request finished in 35.9852ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:32:18,121 [8] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/GetAccessFailedCount application/json; charset=utf-8 
+
+INFO  8 2018-12-16 17:32:18,130 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetAccessFailedCountAsync (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:18,135 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:32:18,140 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetAccessFailedCountAsync (WebStore.ServicesHosting) in 8.738ms
+
+INFO  8 2018-12-16 17:32:18,143 [8] ?     - Request finished in 21.8211ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:18,168 [24] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/getTwoFactorEnabled application/json; charset=utf-8 
+
+INFO  9 2018-12-16 17:32:18,178 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetTwoFactorEnabledAsync (WebStore.ServicesHosting) with arguments (Nelfias) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:18,181 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:18,186 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetTwoFactorEnabledAsync (WebStore.ServicesHosting) in 13.0417ms
+
+INFO  9 2018-12-16 17:32:18,189 [9] ?     - Request finished in 20.754ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:32:18,223 [8] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/userId application/json; charset=utf-8 
+
+INFO  8 2018-12-16 17:32:18,232 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetUserIdAsync (WebStore.ServicesHosting) with arguments (Nelfias) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:18,237 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:32:18,241 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetUserIdAsync (WebStore.ServicesHosting) in 9.38ms
+
+INFO  8 2018-12-16 17:32:18,243 [8] ?     - Request finished in 20.6944ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:18,253 [9] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/userName application/json; charset=utf-8 
+
+INFO  8 2018-12-16 17:32:18,263 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetUserNameAsync (WebStore.ServicesHosting) with arguments (Nelfias) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:18,267 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:32:18,271 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetUserNameAsync (WebStore.ServicesHosting) in 9.7416ms
+
+INFO  8 2018-12-16 17:32:18,274 [8] ?     - Request finished in 21.1482ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:18,284 [9] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/users/getClaims application/json; charset=utf-8 
+
+INFO  8 2018-12-16 17:32:18,295 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.UsersApiController.GetClaimsAsync (WebStore.ServicesHosting) with arguments (Nelfias) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:18,307 [8] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  25 2018-12-16 17:32:18,424 [25] ?     - Executed DbCommand (13ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0
+
+INFO  25 2018-12-16 17:32:18,429 [25] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  25 2018-12-16 17:32:18,435 [25] ?     - Executed action WebStore.ServicesHosting.Controllers.UsersApiController.GetClaimsAsync (WebStore.ServicesHosting) in 141.7395ms
+
+INFO  25 2018-12-16 17:32:18,438 [25] ?     - Request finished in 153.8495ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:18,590 [24] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/values  
+
+INFO  24 2018-12-16 17:32:18,595 [24] ?     - Executing action method WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  24 2018-12-16 17:32:18,598 [24] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  24 2018-12-16 17:32:18,604 [24] ?     - Executed action WebStore.ServicesHosting.Controllers.ValuesController.Get (WebStore.ServicesHosting) in 6.3178ms
+
+INFO  24 2018-12-16 17:32:18,609 [24] ?     - Request finished in 16.0338ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:18,624 [9] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/sections  
+
+INFO  9 2018-12-16 17:32:18,627 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:18,630 [9] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  9 2018-12-16 17:32:18,637 [9] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[Order], [c].[ParentId]
+FROM [Sections] AS [c]
+
+INFO  9 2018-12-16 17:32:18,640 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:18,644 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) in 16.2184ms
+
+INFO  9 2018-12-16 17:32:18,647 [9] ?     - Request finished in 23.0044ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:18,655 [24] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/brands  
+
+INFO  24 2018-12-16 17:32:18,658 [24] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  24 2018-12-16 17:32:18,661 [24] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  24 2018-12-16 17:32:18,670 [24] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[Name], [b].[Order]
+FROM [Brands] AS [b]
+
+INFO  24 2018-12-16 17:32:18,673 [24] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  24 2018-12-16 17:32:18,677 [24] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) in 17.7928ms
+
+INFO  24 2018-12-16 17:32:18,681 [24] ?     - Request finished in 24.6144ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:32:24,202 [8] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/products application/json; charset=utf-8 
+
+INFO  8 2018-12-16 17:32:24,217 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) with arguments (WebStore.DomainModels.Entities.ProductFilter) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:24,228 [8] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+WARN  8 2018-12-16 17:32:24,322 [8] ?     - The Include operation for navigation '[p].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-16 17:32:24,327 [8] ?     - The Include operation for navigation '[p].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+INFO  8 2018-12-16 17:32:24,438 [8] ?     - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Order], [p].[Price], [p].[ImageUrl], CASE
+    WHEN [p].[BrandId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [p].[BrandId] AS [Id0], [p.Brand].[Name] AS [Name0]
+FROM [Products] AS [p]
+LEFT JOIN [Brands] AS [p.Brand] ON [p].[BrandId] = [p.Brand].[Id]
+
+INFO  8 2018-12-16 17:32:24,451 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:32:24,467 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) in 256.3621ms
+
+INFO  8 2018-12-16 17:32:24,472 [8] ?     - Request finished in 267.7763ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:32:31,258 [8] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/products application/json; charset=utf-8 
+
+INFO  8 2018-12-16 17:32:31,260 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) with arguments (WebStore.DomainModels.Entities.ProductFilter) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:31,263 [8] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  8 2018-12-16 17:32:31,267 [8] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Order], [p].[Price], [p].[ImageUrl], CASE
+    WHEN [p].[BrandId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [p].[BrandId] AS [Id0], [p.Brand].[Name] AS [Name0]
+FROM [Products] AS [p]
+LEFT JOIN [Brands] AS [p.Brand] ON [p].[BrandId] = [p.Brand].[Id]
+
+INFO  8 2018-12-16 17:32:31,269 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:32:31,273 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) in 11.3046ms
+
+INFO  8 2018-12-16 17:32:31,275 [8] ?     - Request finished in 17.5816ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:31,690 [24] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/sections  
+
+INFO  24 2018-12-16 17:32:31,692 [24] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  24 2018-12-16 17:32:31,695 [24] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  24 2018-12-16 17:32:31,698 [24] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[Order], [c].[ParentId]
+FROM [Sections] AS [c]
+
+INFO  24 2018-12-16 17:32:31,700 [24] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  24 2018-12-16 17:32:31,704 [24] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) in 10.4616ms
+
+INFO  24 2018-12-16 17:32:31,707 [24] ?     - Request finished in 17.047ms 200 application/json; charset=utf-8
+
+INFO  8 2018-12-16 17:32:31,717 [8] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/brands  
+
+INFO  8 2018-12-16 17:32:31,719 [8] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  8 2018-12-16 17:32:31,722 [8] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  8 2018-12-16 17:32:31,725 [8] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[Name], [b].[Order]
+FROM [Brands] AS [b]
+
+INFO  8 2018-12-16 17:32:31,727 [8] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  8 2018-12-16 17:32:31,733 [8] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) in 10.7354ms
+
+INFO  8 2018-12-16 17:32:31,735 [8] ?     - Request finished in 18.7296ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:34,042 [9] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/products application/json; charset=utf-8 
+
+INFO  9 2018-12-16 17:32:34,045 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) with arguments (WebStore.DomainModels.Entities.ProductFilter) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:34,047 [9] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  9 2018-12-16 17:32:34,051 [9] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Order], [p].[Price], [p].[ImageUrl], CASE
+    WHEN [p].[BrandId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [p].[BrandId] AS [Id0], [p.Brand].[Name] AS [Name0]
+FROM [Products] AS [p]
+LEFT JOIN [Brands] AS [p.Brand] ON [p].[BrandId] = [p.Brand].[Id]
+
+INFO  9 2018-12-16 17:32:34,053 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:34,058 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) in 11.5089ms
+
+INFO  9 2018-12-16 17:32:34,061 [9] ?     - Request finished in 18.6924ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:34,075 [24] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/sections  
+
+INFO  24 2018-12-16 17:32:34,078 [24] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  24 2018-12-16 17:32:34,081 [24] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  24 2018-12-16 17:32:34,084 [24] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[Order], [c].[ParentId]
+FROM [Sections] AS [c]
+
+INFO  24 2018-12-16 17:32:34,086 [24] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  24 2018-12-16 17:32:34,090 [24] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetSections (WebStore.ServicesHosting) in 10.4579ms
+
+INFO  24 2018-12-16 17:32:34,092 [24] ?     - Request finished in 16.9069ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:34,101 [9] ?     - Request starting HTTP/1.1 GET http://localhost:54244/api/products/brands  
+
+INFO  9 2018-12-16 17:32:34,104 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) with arguments ((null)) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:34,106 [9] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  9 2018-12-16 17:32:34,109 [9] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[Name], [b].[Order]
+FROM [Brands] AS [b]
+
+INFO  9 2018-12-16 17:32:34,111 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:34,116 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetBrands (WebStore.ServicesHosting) in 10.3906ms
+
+INFO  9 2018-12-16 17:32:34,119 [9] ?     - Request finished in 17.0514ms 200 application/json; charset=utf-8
+
+INFO  25 2018-12-16 17:32:35,574 [25] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/products application/json; charset=utf-8 
+
+INFO  25 2018-12-16 17:32:35,577 [25] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) with arguments (WebStore.DomainModels.Entities.ProductFilter) - ModelState is Valid
+
+INFO  25 2018-12-16 17:32:35,579 [25] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  25 2018-12-16 17:32:35,582 [25] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Order], [p].[Price], [p].[ImageUrl], CASE
+    WHEN [p].[BrandId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [p].[BrandId] AS [Id0], [p.Brand].[Name] AS [Name0]
+FROM [Products] AS [p]
+LEFT JOIN [Brands] AS [p.Brand] ON [p].[BrandId] = [p.Brand].[Id]
+
+INFO  25 2018-12-16 17:32:35,584 [25] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  25 2018-12-16 17:32:35,588 [25] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) in 10.9017ms
+
+INFO  25 2018-12-16 17:32:35,591 [25] ?     - Request finished in 16.7873ms 200 application/json; charset=utf-8
+
+INFO  9 2018-12-16 17:32:43,170 [9] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/products application/json; charset=utf-8 
+
+INFO  9 2018-12-16 17:32:43,174 [9] ?     - Executing action method WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) with arguments (WebStore.DomainModels.Entities.ProductFilter) - ModelState is Valid
+
+INFO  9 2018-12-16 17:32:43,177 [9] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  9 2018-12-16 17:32:43,180 [9] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Order], [p].[Price], [p].[ImageUrl], CASE
+    WHEN [p].[BrandId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [p].[BrandId] AS [Id0], [p.Brand].[Name] AS [Name0]
+FROM [Products] AS [p]
+LEFT JOIN [Brands] AS [p.Brand] ON [p].[BrandId] = [p.Brand].[Id]
+
+INFO  9 2018-12-16 17:32:43,183 [9] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  9 2018-12-16 17:32:43,187 [9] ?     - Executed action WebStore.ServicesHosting.Controllers.ProductsApiController.GetProducts (WebStore.ServicesHosting) in 12.4337ms
+
+INFO  9 2018-12-16 17:32:43,189 [9] ?     - Request finished in 19.3773ms 200 application/json; charset=utf-8
+
+INFO  24 2018-12-16 17:32:43,199 [24] ?     - Request starting HTTP/1.1 POST http://localhost:54244/api/orders/Nelfias application/json; charset=utf-8 
+
+INFO  24 2018-12-16 17:32:43,240 [24] ?     - Executing action method WebStore.ServicesHosting.Controllers.OrdersApiController.CreateOrder (WebStore.ServicesHosting) with arguments (WebStore.DomainModels.Dto.CreateOrderModel, Nelfias) - ModelState is Valid
+
+INFO  24 2018-12-16 17:32:43,252 [24] ?     - Entity Framework Core 2.2.0-rtm-35687 initialized 'WebStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+INFO  8 2018-12-16 17:32:43,259 [8] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+
+INFO  24 2018-12-16 17:32:43,430 [24] ?     - Executed DbCommand (5ms) [Parameters=[@__item_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[ImageUrl], [p].[Name], [p].[Order], [p].[Price], [p].[SectionId]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__item_Id_0
+
+INFO  24 2018-12-16 17:32:43,670 [24] ?     - Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Orders] ([Address], [Date], [Name], [Phone], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Orders]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INFO  24 2018-12-16 17:32:43,718 [24] ?     - Executed DbCommand (11ms) [Parameters=[@p5='?' (DbType = Int32), @p6='?' (DbType = Decimal), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderItems] ([OrderId], [Price], [ProductId], [Quantity])
+VALUES (@p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [OrderItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INFO  24 2018-12-16 17:32:43,870 [24] ?     - Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[Address], [o].[Date], [o].[Name], [o].[Phone], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__id_0
+ORDER BY [o].[Id]
+
+INFO  24 2018-12-16 17:32:43,899 [24] ?     - Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [o.OrderItems].[Id], [o.OrderItems].[OrderId], [o.OrderItems].[Price], [o.OrderItems].[ProductId], [o.OrderItems].[Quantity]
+FROM [OrderItems] AS [o.OrderItems]
+INNER JOIN (
+    SELECT TOP(1) [o0].[Id]
+    FROM [Orders] AS [o0]
+    WHERE [o0].[Id] = @__id_0
+    ORDER BY [o0].[Id]
+) AS [t] ON [o.OrderItems].[OrderId] = [t].[Id]
+ORDER BY [t].[Id]
+
+INFO  24 2018-12-16 17:32:43,918 [24] ?     - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+
+INFO  24 2018-12-16 17:32:43,930 [24] ?     - Executed action WebStore.ServicesHosting.Controllers.OrdersApiController.CreateOrder (WebStore.ServicesHosting) in 725.1436ms
+
+INFO  24 2018-12-16 17:32:43,934 [24] ?     - Request finished in 735.314ms 200 application/json; charset=utf-8
+

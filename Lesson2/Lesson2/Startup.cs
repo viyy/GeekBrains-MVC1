@@ -2,15 +2,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using WebStore.Clients;
-using WebStore.DAL;
 using WebStore.DomainModels.Entities.Classes;
 using WebStore.DomainModels.Interfaces;
 using WebStore.Interfaces.Services;
 using WebStore.Services;
+using WebStore.Logger;
 
 namespace WebStore
 {
@@ -51,7 +52,8 @@ namespace WebStore
             services.AddTransient<IUserLoginStore<User>, UsersClient>();
             services.AddTransient<IUserLockoutStore<User>, UsersClient>();
 
-            services.AddTransient<IRoleStore<IdentityRole>, RolesClient>();
+            services.AddTransient<IRoleStore<IdentityRole>, RolesClient>();
+
             //services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(
                 //Configuration.GetConnectionString("DefaultConnection")));
 
@@ -82,24 +84,26 @@ namespace WebStore
         }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+    {
+        loggerFactory.AddLog4Net();
+
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-
+            else
+                app.UseExceptionHandler("/Home/Error");
+        app.UseStatusCodePagesWithRedirects("~/home/errorstatus/{0}");
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseStaticFiles();
             app.UseAuthentication();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    "areas",
-                    "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
 
-                routes.MapRoute(
-                    "default",
-                    "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc(ConfigureRoutes);
+        }
+
+        private static void ConfigureRoutes(IRouteBuilder routes)
+        {
+            routes.MapRoute("areas", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+            routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }

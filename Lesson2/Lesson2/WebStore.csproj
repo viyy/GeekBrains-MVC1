@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Content Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="log4net.config" />
   </ItemGroup>
 
@@ -12,7 +19,8 @@
     <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
+    <PackageReference Include="SimpleMvcSitemap" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,7 +37,6 @@
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Models\" />
     <Folder Include="Areas\admin\Views\" />
-    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>

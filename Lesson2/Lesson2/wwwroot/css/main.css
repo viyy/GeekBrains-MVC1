@@ -10,6 +10,7 @@ body {
 	position: relative;
 }
 
+
 ul li { list-style: none; }
 
 a:hover {
@@ -2249,3 +2250,6 @@ h2.title {
 .contact-info .social-networks ul li a i { background: none; }
 
 .contact-info .social-networks ul li a:hover { color: #FE980F; }
+.panel-body ul li.active, .brands-name ul li.active {
+    text-decoration: underline;
+}

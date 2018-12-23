@@ -23,12 +23,28 @@ namespace WebStore.Clients
             var result = Get<List<SectionDto>>(url);
             return result;
         }
+
+        public Section GetSectionById(int id)
+        {
+            var url = $"{ServiceAddress}/sections/{id}";
+            var result = Get<Section>(url);
+            return result;
+        }
+        public Brand GetBrandById(int id)
+        {
+            var url = $"{ServiceAddress}/brands/{id}";
+            var result = Get<Brand>(url);
+            return result;
+        }
+
+
         public IEnumerable<BrandDto> GetBrands()
         {
             var url = $"{ServiceAddress}/brands";
             var result = Get<List<BrandDto>>(url);
             return result;
         }
+
         public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
         {
             var url = $"{ServiceAddress}";

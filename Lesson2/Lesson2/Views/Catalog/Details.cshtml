@@ -1,20 +1,18 @@
 ﻿@{
-	ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details";
 }
-
+@(await @Component.InvokeAsync("Breadcrumbs").ConfigureAwait(false))
 <section>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-3">
-				@await Html.PartialAsync("Common/LeftSideBar")
-			</div>
-
-			<div class="col-sm-9 padding-right">
-				@await Html.PartialAsync("Details/Info")
-				@await Html.PartialAsync("Details/ReviewsPanel")
-				@await Html.PartialAsync("Common/RecommendedItems")
-
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                @await Html.PartialAsync("Common/LeftSideBar")
+            </div>
+            <div class="col-sm-9 padding-right">
+                @await Html.PartialAsync("Details/Info")
+                @await Html.PartialAsync("Details/ReviewsPanel")
+                @await Html.PartialAsync("Common/RecommendedItems")
+            </div>
+        </div>
+    </div>
 </section>

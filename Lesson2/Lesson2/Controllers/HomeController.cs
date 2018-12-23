@@ -36,14 +36,10 @@ namespace WebStore.Controllers
         public IActionResult ErrorStatus(string id)
         {
             if (id == "404")
-                return RedirectToAction("NotFound");
+                return NotFound();
             return Content($"Статуcный код ошибки: {id}");
         }
         public IActionResult Error()
-        {
-            return View();
-        }
-        public IActionResult NotFound()
         {
             return View();
         }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using WebStore.Clients;
 using WebStore.DomainModels.Entities.Classes;
 using WebStore.DomainModels.Interfaces;
+using WebStore.Interfaces;
 using WebStore.Interfaces.Services;
 using WebStore.Services;
 using WebStore.Logger;
@@ -30,7 +31,9 @@ namespace WebStore
         {
             services.AddMvc();
             services.AddHttpContextAccessor();
-            services.AddScoped<ICartService, CookieCartService>();
+            services.AddScoped<ICartStore, CookieCartStore>();
+            services.AddScoped<ICartService, CartService>();
+
             services.AddTransient<IProductData, ProductsClient>();
             services.AddScoped<IOrderService, OrdersClient>();
             services.AddTransient<IValuesService, ValuesClient>();

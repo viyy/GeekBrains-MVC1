@@ -1,0 +1,56 @@
+WARN  1 2018-12-26 20:57:23,268 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  1 2018-12-26 20:57:23,299 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  1 2018-12-26 21:02:46,999 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  1 2018-12-26 21:02:47,038 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  10 2018-12-26 21:02:57,756 [10] ?     - The Include operation for navigation '[p].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  10 2018-12-26 21:02:57,764 [10] ?     - The Include operation for navigation '[p].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 21:07:31,015 [9] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 21:07:31,021 [9] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 21:07:34,499 [9] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 21:07:34,504 [9] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  1 2018-12-26 21:58:27,993 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  1 2018-12-26 21:58:28,025 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  8 2018-12-26 21:58:38,191 [8] ?     - The Include operation for navigation '[<generated>_3].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-26 21:58:38,200 [8] ?     - The Include operation for navigation '[<generated>_3].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-26 21:58:38,310 [8] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-26 21:58:38,315 [8] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 21:58:43,528 [9] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 21:58:43,533 [9] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  1 2018-12-26 22:03:40,782 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  1 2018-12-26 22:03:40,816 [1] ?     - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+WARN  8 2018-12-26 22:03:50,923 [8] ?     - The Include operation for navigation '[<generated>_3].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-26 22:03:50,929 [8] ?     - The Include operation for navigation '[<generated>_3].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-26 22:03:51,044 [8] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  8 2018-12-26 22:03:51,049 [8] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 22:03:55,493 [9] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 22:03:55,499 [9] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 22:03:58,976 [9] ?     - The Include operation for navigation '[c].Brand' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+
+WARN  9 2018-12-26 22:03:58,981 [9] ?     - The Include operation for navigation '[c].Section' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+

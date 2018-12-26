@@ -2,21 +2,57 @@
 @model WebStore.DomainModels.Models.CatalogViewModel
 @{
 	ViewData["Title"] = "Shop";
+    var type = Context.Request.Query.ContainsKey("sectionId") ?
+        BreadcrumbType.Section : Context.Request.Query.ContainsKey("brandId") ?
+            BreadcrumbType.Brand : BreadcrumbType.None;
+    // Устанавливаем дефолтное значение источника
+    var fromType = BreadcrumbType.Section;
+    // Если это метод деталей товара
+    if ((string)ViewContext.RouteData.Values["action"] == "ProductDetails")
+    {
+// Устанавливаем тип товар
+        type = BreadcrumbType.Item;
+    }
+    var id = 0;
+    switch (type)
+    {
+        case BreadcrumbType.None:
+            break;
+        case BreadcrumbType.Section:
+            id = int.Parse(Context.Request.Query["sectionId"].ToString());
+            break;
+        case BreadcrumbType.Brand:
+            id = int.Parse(Context.Request.Query["brandId"].ToString());
+            break;
+        case BreadcrumbType.Item:
+            if (Context.Request.Query.ContainsKey("fromBrand"))
+            {
+                fromType = BreadcrumbType.Brand;
+            }
+            id = int.Parse(ViewContext.RouteData.Values["id"].ToString());
+            break;
+        default:
+            throw new ArgumentOutOfRangeException();
+    }
+}
+
 }
 
 @section top{
-	@await Html.PartialAsync("Shop/Advertisement")
+	@await Html.PartialAsync("Shop/Advertisement").ConfigureAwait(false)
 }
+
+@(await Component.InvokeAsync("Breadcrumbs", new { type, id, fromType }).ConfigureAwait(false))
 
 <section>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				@await Html.PartialAsync("Common/LeftSideBar")
+				@await Html.PartialAsync("Common/LeftSideBar").ConfigureAwait(false)
 			</div>
 
 			<div class="col-sm-9 padding-right">
-				@await Html.PartialAsync("Shop/ShopItems", Model.Products)
+				@await Html.PartialAsync("Shop/ShopItems", Model.Products).ConfigureAwait(false)
 				<ul class="pagination">
 					<li class="active"><a href="">1</a></li>
 					<li><a href="">2</a></li>

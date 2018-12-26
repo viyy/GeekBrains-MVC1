@@ -97,22 +97,22 @@
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
 							<li>
-								<a asp-action="Index" asp-controller="Employees"><i class="fa fa-lock"></i> Employees</a>
+								<a is-active-route asp-action="Index" asp-controller="Employees"><i class="fa fa-lock"></i> Employees</a>
 							</li>
 							<li>
 								<a href="#"><i class="fa fa-star"></i> Wishlist</a>
 							</li>
 							<li>
-								<a asp-action="Checkout" asp-controller="Cart"><i class="fa fa-crosshairs"></i> Checkout</a>
+								<a is-active-route asp-action="Checkout" asp-controller="Cart"><i class="fa fa-crosshairs"></i> Checkout</a>
 							</li>
 							<li>
-								<a asp-action="Index" asp-controller="Cart"><i class="fa fa-shopping-cart"></i> Cart</a>
+								<a is-active-route asp-action="Index" asp-controller="Cart"><i class="fa fa-shopping-cart"></i> Cart</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-3">
-					@await Component.InvokeAsync("LoginLogout")
+					@await Component.InvokeAsync("LoginLogout").ConfigureAwait(false)
 				</div>
 			</div>
 		</div>
@@ -134,25 +134,25 @@
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
 							<li>
-								<a asp-action="Index" asp-controller="Home" class="active">Home</a>
+								<a is-active-route asp-action="Index" asp-controller="Home">Home</a>
 							</li>
 							<li class="dropdown">
 								<a href="#">Shop<i class="fa fa-angle-down"></i></a>
 								<ul role="menu" class="sub-menu">
 									<li>
-										<a asp-action="Shop" asp-controller="Catalog">Products</a>
+										<a is-active-route ignore-action asp-action="Shop" asp-controller="Catalog">Products</a>
 									</li>
 									<li>
-										<a asp-action="Details" asp-controller="Catalog">Product Details</a>
+										<a is-active-route asp-action="Details" asp-controller="Catalog">Product Details</a>
 									</li>
 									<li>
-										<a asp-action="Checkout" asp-controller="Cart">Checkout</a>
+										<a is-active-route asp-action="Checkout" asp-controller="Cart">Checkout</a>
 									</li>
 									<li>
-										<a asp-action="Index" asp-controller="Cart">Cart</a>
+										<a is-active-route asp-action="Index" asp-controller="Cart">Cart</a>
 									</li>
 									<li>
-										<a asp-action="Login" asp-controller="Account">Login</a>
+										<a is-active-route asp-action="Login" asp-controller="Account">Login</a>
 									</li>
 								</ul>
 							</li>

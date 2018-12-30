@@ -48,6 +48,24 @@ namespace WebStore.DomainModels.Interfaces
         /// <param name="id">Идентификатор</param>
         /// <returns>Сущность Product, если нашел, иначе null</returns>
         ProductDto GetProductById(int id);
+        /// <summary>
+        /// Создать продукт
+        /// </summary>
+        /// <param name="product">Сущность Product</param>
+        /// <returns></returns>
+        SaveResult CreateProduct(ProductDto product);
+        /// <summary>
+        /// Обновить продукт
+        /// </summary>
+        /// <param name="product">Сущность Product</param>
+        /// <returns></returns>
+        SaveResult UpdateProduct(ProductDto product);
+        /// <summary>
+        /// Удалить продукт
+        /// </summary>
+        /// <param name="productId">Id продукта</param>
+        /// <returns></returns>
+        SaveResult DeleteProduct(int productId);
 
     }
 }

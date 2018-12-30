@@ -34,5 +34,10 @@ namespace WebStore.DomainModels.Entities.Classes
         public decimal Price { get; set; }
 
         public int Order { get; set; }
+        /// <summary>
+        /// Удален товар или нет
+        /// </summary>
+        public bool IsDelete { get; set; }
+
     }
 }

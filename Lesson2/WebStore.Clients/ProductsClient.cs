@@ -58,5 +58,26 @@ namespace WebStore.Clients
             var result = Get<ProductDto>(url);
             return result;
         }
+        public SaveResult CreateProduct(ProductDto productDto)
+        {
+            var url = $"{ServiceAddress}/create";
+            var response = Post(url, productDto);
+            var result = response.Content.ReadAsAsync<SaveResult>().Result;
+            return result;
+        }
+        public SaveResult UpdateProduct(ProductDto productDto)
+        {
+            var url = $"{ServiceAddress}";
+            var response = Put(url, productDto);
+            var result = response.Content.ReadAsAsync<SaveResult>().Result;
+            return result;
+        }
+        public SaveResult DeleteProduct(int productId)
+        {
+            var url = $"{ServiceAddress}/{productId}";
+            var response = DeleteAsync(url).Result;
+            var result = response.Content.ReadAsAsync<SaveResult>().Result;
+            return result;
+        }
     }
 }

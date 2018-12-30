@@ -59,7 +59,7 @@ namespace WebStore.Services
             var products = _productData.GetProducts(new ProductFilter()
             {
                 Ids = _cartStore.Cart.Items.Select(i => i.ProductId).ToList()
-            }).Select(p => new ProductViewModel()
+            }).Products.Select(p => new ProductViewModel()
             {
                 Id = p.Id,
                 ImageUrl = p.ImageUrl,
@@ -68,11 +68,12 @@ namespace WebStore.Services
                 Price = p.Price,
                 Brand = p.Brand != null ? p.Brand.Name : string.Empty
             }).ToList();
+
             var r = new CartViewModel
             {
-                Items = _cartStore.Cart.Items.ToDictionary(x => products.First(y
-                    => y.Id == x.ProductId), x => x.Quantity)
+                Items = _cartStore.Cart.Items.ToDictionary(x => products.First(y => y.Id == x.ProductId), x => x.Quantity)
             };
+
             return r;
         }
 

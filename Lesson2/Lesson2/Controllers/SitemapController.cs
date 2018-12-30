@@ -30,8 +30,8 @@ namespace WebStore.Controllers
             nodes.AddRange(from section in sections where section.ParentId.HasValue select new SitemapNode(Url.Action("Shop", "Catalog", new {sectionId = section.Id})));
             var brands = _productData.GetBrands();
             nodes.AddRange(brands.Select(brand => new SitemapNode(Url.Action("Shop", "Catalog", new {brandId = brand.Id}))));
-            var products = _productData.GetProducts(new ProductFilter());
-            nodes.AddRange(products.Select(productDto => new SitemapNode(Url.Action("Details", "Catalog", new {id = productDto.Id}))));
+            /*var products = _productData.GetProducts(new ProductFilter());
+            nodes.AddRange(products.Select(productDto => new SitemapNode(Url.Action("Details", "Catalog", new {id = productDto.Id}))));*/
             return new SitemapProvider().CreateSitemap(new SitemapModel(nodes));
         }
     }

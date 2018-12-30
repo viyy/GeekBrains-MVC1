@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using WebStore.DomainModels;
 using WebStore.DomainModels.Dto;
 using WebStore.DomainModels.Entities;
 using WebStore.DomainModels.Entities.Classes;
@@ -20,7 +20,7 @@ namespace WebStore.DAL
 
         public IEnumerable<SectionDto> GetSections()
         {
-            return _context.Sections.Select(c => new SectionDto()
+            return _context.Sections.Select(c => new SectionDto
             {
                 Id = c.Id,
                 Name = c.Name,
@@ -33,6 +33,7 @@ namespace WebStore.DAL
         {
             return _context.Sections.FirstOrDefault(s => s.Id == id);
         }
+
         public Brand GetBrandById(int id)
         {
             return _context.Brands.FirstOrDefault(s => s.Id == id);
@@ -41,7 +42,7 @@ namespace WebStore.DAL
 
         public IEnumerable<BrandDto> GetBrands()
         {
-            return _context.Brands.Select(b => new BrandDto()
+            return _context.Brands.Select(b => new BrandDto
             {
                 Id = b.Id,
                 Name = b.Name,
@@ -52,7 +53,7 @@ namespace WebStore.DAL
         public PagedProductDto GetProducts(ProductFilter filter)
         {
             var query =
-                _context.Products.Include("Brand").Include("Section").AsQueryable();
+                _context.Products.Include("Brand").Include("Section").Where(c => !c.IsDelete).AsQueryable();
             if (filter.BrandId.HasValue)
                 query = query.Where(c => c.BrandId.HasValue &&
                                          c.BrandId.Value.Equals(filter.BrandId.Value));
@@ -64,33 +65,33 @@ namespace WebStore.DAL
                 TotalCount = query.Count()
             };
             if (filter.PageSize.HasValue)
-            {
                 model.Products = query.OrderBy(c => c.Order).Skip((filter.Page -
-                                                                   1) * filter.PageSize.Value).Take(filter.PageSize.Value)
+                                                                   1) * filter.PageSize.Value)
+                    .Take(filter.PageSize.Value)
                     .Select(p =>
                         new ProductDto
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Order = p.Order,
-                    Price = p.Price,
-                    ImageUrl = p.ImageUrl,
-                    Brand = p.BrandId.HasValue ? new BrandDto()
-                    {
-                        Id =
-                            p.Brand.Id,
-                        Name = p.Brand.Name
-                    } : null,
-                    Section = new SectionDto()
-                    {
-                        Id = p.SectionId,
-                        Name
-                            = p.Section.Name
-                    }
-                }).ToList();
-            }
+                        {
+                            Id = p.Id,
+                            Name = p.Name,
+                            Order = p.Order,
+                            Price = p.Price,
+                            ImageUrl = p.ImageUrl,
+                            Brand = p.BrandId.HasValue
+                                ? new BrandDto
+                                {
+                                    Id =
+                                        p.Brand.Id,
+                                    Name = p.Brand.Name
+                                }
+                                : null,
+                            Section = new SectionDto
+                            {
+                                Id = p.SectionId,
+                                Name
+                                    = p.Section.Name
+                            }
+                        }).ToList();
             else
-            {
                 model.Products = query.OrderBy(c => c.Order).Select(p =>
                     new ProductDto
                     {
@@ -99,38 +100,38 @@ namespace WebStore.DAL
                         Order = p.Order,
                         Price = p.Price,
                         ImageUrl = p.ImageUrl,
-                        Brand = p.BrandId.HasValue ? new BrandDto()
-                        {
-                            Id =
-                                p.Brand.Id,
-                            Name = p.Brand.Name
-                        } : null,
-                        Section = new SectionDto()
+                        Brand = p.BrandId.HasValue
+                            ? new BrandDto
+                            {
+                                Id =
+                                    p.Brand.Id,
+                                Name = p.Brand.Name
+                            }
+                            : null,
+                        Section = new SectionDto
                         {
                             Id = p.SectionId,
                             Name
                                 = p.Section.Name
                         }
                     }).ToList();
-            }
             return model;
-
         }
 
         public ProductDto GetProductById(int id)
         {
             var product =
-                    _context.Products.Include("Brand").Include("Section").FirstOrDefault(p =>
-                        p.Id.Equals(id));
+                _context.Products.Include("Brand").Include("Section").FirstOrDefault(p =>
+                    p.Id.Equals(id));
             if (product == null) return null;
-            var dto = new ProductDto()
+            var dto = new ProductDto
             {
                 Id = product.Id,
                 Name = product.Name,
                 ImageUrl = product.ImageUrl,
                 Order = product.Order,
                 Price = product.Price,
-                Section = new SectionDto()
+                Section = new SectionDto
                 {
                     Id = product.SectionId,
                     Name =
@@ -138,7 +139,7 @@ namespace WebStore.DAL
                 }
             };
             if (product.Brand != null)
-                dto.Brand = new BrandDto()
+                dto.Brand = new BrandDto
                 {
                     Id = product.Brand.Id,
                     Name = product.Brand.Name
@@ -146,5 +147,128 @@ namespace WebStore.DAL
             return dto;
         }
 
+        public SaveResult CreateProduct(ProductDto productDto)
+        {
+            try
+            {
+                var product = new Product
+                {
+                    BrandId = productDto.Brand?.Id,
+                    SectionId = productDto.Section.Id,
+                    Name = productDto.Name,
+                    ImageUrl = productDto.ImageUrl,
+                    Order = productDto.Order,
+                    Price = productDto.Price
+                };
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                return new SaveResult
+                {
+                    IsSuccess = true
+                };
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return new SaveResult
+                {
+                    IsSuccess = false,
+                    Errors = new List<string>
+                    {
+                        ex.Message
+                    }
+                };
+            }
+            catch (DbUpdateException ex)
+            {
+                return new SaveResult
+                {
+                    IsSuccess = false,
+                    Errors = new List<string>
+                    {
+                        ex.Message
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new SaveResult
+                {
+                    IsSuccess = false,
+                    Errors = new List<string>
+                    {
+                        e.Message
+                    }
+                };
+            }
+        }
+
+        public SaveResult UpdateProduct(ProductDto productDto)
+        {
+            var product = _context.Products.FirstOrDefault();
+            if (product == null)
+                return new SaveResult
+                {
+                    IsSuccess = false,
+                    Errors = new List<string> {"Entity not exist"}
+                };
+            product.BrandId = productDto.Brand.Id;
+            product.SectionId = productDto.Section.Id;
+            product.ImageUrl = productDto.ImageUrl;
+            product.Order = productDto.Order;
+            product.Price = productDto.Price;
+            product.Name = productDto.Name;
+            try
+            {
+                _context.SaveChanges();
+                return new SaveResult
+                {
+                    IsSuccess = true
+                };
+            }
+            catch (Exception e)
+            {
+                return new SaveResult
+                {
+                    IsSuccess = false,
+                    Errors = new List<string>
+                    {
+                        e.Message
+                    }
+                };
+            }
+        }
+
+        public SaveResult DeleteProduct(int productId)
+        {
+            var product = _context.Products.FirstOrDefault();
+            if (product == null)
+            {
+                return new SaveResult()
+                {
+                    IsSuccess = false,
+                    Errors = new List<string>() { "Entity not exist" }
+                };
+            }
+            try
+            {
+                product.IsDelete = true;
+                _context.SaveChanges();
+                return new SaveResult()
+                {
+                    IsSuccess = true
+                };
+            }
+            catch (Exception e)
+            {
+                return new SaveResult
+                    {
+                        IsSuccess = false,
+                        Errors = new List<string>()
+                        {
+                            e.Message
+                        }
+                    };
+            }
+        }
     }
 }
